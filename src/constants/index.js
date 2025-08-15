@@ -16,13 +16,16 @@ import {
     figma,
     docker,
     meta,
-    starbucks,
-    tesla,
-    shopify,
-    carrent,
-    jobit,
-    tripguide,
+    QQBridge,
+    utokyo,
+    fujitsu,
     threejs,
+    threeDportfolio,
+    virtualRubik,
+    portfolio,
+    backToTheChildhood,
+    vrBaseball,
+    voidStrike,
   } from "../assets";
   
   export const navLinks = [
@@ -44,7 +47,7 @@ import {
     },
     {
       id: "works",
-      title: "Works",
+      title: "Projects",
     },
     {
       id: "contact",
@@ -128,24 +131,23 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
+      title: "C/C++ Developer",
+      company_name: "University of Tokyo",
+      icon: utokyo,
       iconBg: "#383E56",
       date: "March 2020 - April 2021",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "教授の依頼を受け，大学の演習講義用の資料の作成・更新を行なった．",
+        "画像処理やコンピュータグラフィクス，AR/VRといった技術について，OpenCVやOpenGLといったライブラリを使ったプログラムとともに体系的に学習する講義．",
+        "既存の講義用資料とプログラムがC言語を用いていたのに対し，OpenCV等のライブラリのAPI仕様の変更によりC++言語での実装が必要になり，その更新を行なった.",
       ],
     },
     {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
+      title: "GCP Engineer",
+      company_name: "QQBridge",
+      icon: QQBridge,
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "Jun 2024 - Feb 2025",
       points: [
         "Developing and maintaining web applications using React.js and other related technologies.",
         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -154,24 +156,11 @@ import {
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
-      icon: shopify,
+      title: "Solution Engineer",
+      company_name: "Fujitsu",
+      icon: fujitsu,
       iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
-      iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
+      date: "Apr 2025 - Present",
       points: [
         "Developing and maintaining web applications using React.js and other related technologies.",
         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -210,67 +199,106 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "3D Portfolio Website (Current Project)",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "React、Three.js、Tailwind CSSで構築されたモダンでインタラクティブなポートフォリオサイト。3Dグラフィックスやレスポンシブ性，豊富なアニメーションを備えたUIが特徴。",
       tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
+        { name: "react", color: "blue-text-gradient" },
+        { name: "threejs", color: "green-text-gradient" },
+        { name: "tailwind", color: "pink-text-gradient" },
+        { name: "GSAP", color: "orange-text-gradient" },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: threeDportfolio, 
+      source_code_link: "https://github.com/Moyarzabal/3Dportfolio", 
     },
     {
-      name: "Job IT",
+      name: "Portfolio(学生時代)",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "修士学生時代に作成したポートフォリオ。研究内容やインターンシップ参加情報、過去プロジェクトなどがシンプルにまとめられ、紹介されている。",
       tags: [
         {
-          name: "react",
+          name: "HTML",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "CSS",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "JavaScript",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: portfolio,
+      source_code_link: "https://github.com/Moyarzabal/virtual_rubik-s_cube",
     },
     {
-      name: "Trip Guide",
+      name: "Back to the Childhood",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "修士時代に研究でも使用したVRプロジェクトで、子どもまたは高齢者の姿をしたアバタに変身し、昭和の風景を体験可能。高齢者が体験することで、過去を回想し、心理的にも若返ることができる。",
       tags: [
         {
-          name: "nextjs",
+          name: "C#",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "Unity",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "Meta Quest",
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: backToTheChildhood,
+      source_code_link: "https://github.com/Moyarzabal/RejuvenationClassRoom",
+    },
+    {
+      name: "VR野球BAN!",
+      description:
+        "2人対戦型のVR野球ゲーム。ピッチャーとバッターがそれぞれコントローラーを持ち、ピッチャーはスイング速度とジョイスティック操作により球速や変化球の方向を操作し、バッターはコントローラー連動のバットで打撃を行う。物理的にリアルな打球挙動や，現実では不可能な変化球軌道、また打球追従カメラ、スコアボード、効果音やBGMなども搭載され、臨場感の高いVR野球体験が可能。",
+      tags: [
+        {
+          name: "C#/Unity",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Meta Quest",
+          color: "green-text-gradient",
+        },
+      ],
+      image: vrBaseball,
+      source_code_link: "https://github.com/Moyarzabal/VR_Yakyu_BAN",
+    },
+    {
+      name: "VoidStrike",
+      description:
+        "Photon Networkを用いたオンライン対戦が可能なVRでのマルチプレイヤーFPSゲーム。プレイヤーは対戦部屋を作成または検索して参加し、ジョイスティックで移動、Aボタンで走行、トリガーで射撃、マガジンのリロードといった操作が可能。",
+      tags: [
+        {
+          name: "C#/Unity",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Meta Quest",
+          color: "green-text-gradient",
+        },
+      ],
+        image: voidStrike,
+      source_code_link: "https://github.com/Moyarzabal/VR_multi_FPS",
+    },
+    {
+      name: "Virtual Rubik's Cube",
+      description:
+        "大学3年次に制作した初のプログラミング作品で，2×2×2のルービックキューブを仮想空間で操作できるアプリケーション。キーボードで面の選択や回転、視点の移動ができ、現実のキューブに近い操作感を再現している。",
+      tags: [
+        {
+          name: "C++",
+          color: "blue-text-gradient",
+        },
+      ],
+      image: virtualRubik,
+      source_code_link: "https://github.com/Moyarzabal/virtual_rubik-s_cube",
     },
   ];
 
@@ -291,6 +319,36 @@ import {
     { value: 108, suffix: "+", label: "Completed Projects" },
     { value: 90, suffix: "%", label: "Client Retention Rate" },
   ];
+
+  const edcCards = [
+    {
+      // imgPath: "/images/exp1.png",
+      logoPath: "/images/shibumaku2.png",
+      title: "私立 渋谷教育学園幕張高等学校",
+      date: "Apr. 2015 ~ Mar. 2018",
+      responsibilities: [
+        "Shibuya Education Academy Makuhari High School"
+      ],
+    },
+    {
+      // imgPath: "/images/exp2.png",
+      logoPath: "/images/utokyo.png",
+      title: "東京大学 理科一類 → 工学部 機械情報工学科",
+      date: "Apr. 2019 ~ Mar. 2023",
+      responsibilities: [
+        "Bachelor's degree at the Department of Mechano-Infomatics, The University of Tokyo"
+      ],
+    },
+    {
+      // imgPath: "/images/exp3.png",
+      logoPath: "/images/utokyo.png",
+      title: "東京大学大学院 情報理工学系研究科 知能機械情報学専攻（修士課程）",
+      date: "Apr. 2023 ~ Mar. 2025",
+      responsibilities: [
+        "Master's degree at the Department of Mechano-Informatics, Graduate School of Information Science and Technology, The University of Tokyo"
+      ],
+    },
+  ];
   
   
-  export { services, technologies, experiences, testimonials, projects, words, counterItems };
+  export { services, technologies, experiences, testimonials, projects, words, counterItems, edcCards };
