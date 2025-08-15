@@ -51,8 +51,9 @@ const Hero2 = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I'm <strong className="text-blue-50">Shun</strong>, a solution engineer with a passion for
-              technology.
+              Hi, I'm <strong className="text-blue-200 text-2xl">Shun,</strong><br></br>
+              a solution engineer <br></br>
+              with a passion for technology.
             </p>
 
             <Button

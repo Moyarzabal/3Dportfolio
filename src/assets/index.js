@@ -25,10 +25,19 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import QQBridge from "./company/QQBridge.png";
+import utokyo from "./company/utokyo.png";
+import fujitsu from "./company/fujitsu.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import threeDportfolio from "./3Dportfolio.png";
+import virtualRubik from "./v_rubik_cube.png";
+import portfolio from "./portfolio.png";
+import backToTheChildhood from "./back_to_the_childhood.png";
+import vrBaseball from "./vr_baseball.png";
+import voidStrike from "./void_strike.png";
 
 export {
   logo,
@@ -54,9 +63,18 @@ export {
   threejs,
   meta,
   shopify,
+  QQBridge,
+  utokyo,
+  fujitsu,
   starbucks,
   tesla,
   carrent,
   jobit,
   tripguide,
+  threeDportfolio,
+  virtualRubik,
+  portfolio,
+  backToTheChildhood,
+  vrBaseball,
+  voidStrike,
 };

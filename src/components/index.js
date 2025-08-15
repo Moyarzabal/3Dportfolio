@@ -11,6 +11,7 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import ShowcaseSection from "./ShowcaseSection";
+import Education from "./Education";
 
 export {
   Hero,
@@ -27,5 +28,6 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  ShowcaseSection
+  ShowcaseSection,
+  Education,
 };
