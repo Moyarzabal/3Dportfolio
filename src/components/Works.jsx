@@ -7,6 +7,8 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { Frameworks } from "../components/FrameWorks";
+
 
 const ProjectCard = ({
   index,
@@ -87,6 +89,23 @@ const Works = () => {
           and manage projects effectively.
         </motion.p>
       </div>
+      <section>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
+      {/* Grid 5 */}
+      <div className="grid-default-color grid-5">
+        <div className="z-10 w-[50%]">
+          <p className="headText">Teck Stack</p>
+          <p className="subtext">
+            I specialize in a variety of languages, frameworks, and tools taht
+            allow me to build robust and scalable applications
+          </p>
+        </div>
+        <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
+          <Frameworks />
+        </div>
+      </div>
+      </div>
+      </section>
 
       <div className='mt-20 flex flex-wrap gap-7'>
         {projects.map((project, index) => (

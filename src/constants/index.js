@@ -137,9 +137,10 @@ import {
       iconBg: "#383E56",
       date: "March 2020 - April 2021",
       points: [
-        "教授の依頼を受け，大学の演習講義用の資料の作成・更新を行なった．",
-        "画像処理やコンピュータグラフィクス，AR/VRといった技術について，OpenCVやOpenGLといったライブラリを使ったプログラムとともに体系的に学習する講義．",
-        "既存の講義用資料とプログラムがC言語を用いていたのに対し，OpenCV等のライブラリのAPI仕様の変更によりC++言語での実装が必要になり，その更新を行なった.",
+        "Updated university exercise lecture materials and programs at the request of a professor",
+        "Developed and maintained exercise assignments on image processing, computer graphics, and AR/VR",
+        "Migrated OpenCV/OpenGL programs from C to C++ implementations",
+        "Addressed API specification changes, refactored and optimized code, and added comments and sample programs",
       ],
     },
     {
@@ -149,10 +150,8 @@ import {
       iconBg: "#E6DEDD",
       date: "Jun 2024 - Feb 2025",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Built a serverless knowledge search & conversational QA platform on Google Cloud that automatically ingests, updates, and deletes documents from GCS, supports multi‑mode chat, and improves relevance via Gemini-based reranking.",
+        "This system enables enterprise knowledge ingestion and conversational querying over documents stored in Google Cloud Storage. It orchestrates automated import, metadata updates, and deletion syncing into an Agent Builder datastore and exposes three chat endpoints with increasing sophistication (Search API, Conversation API, Answer API with reranking).",
       ],
     },
     {
@@ -162,10 +161,10 @@ import {
       iconBg: "#383E56",
       date: "Apr 2025 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Designed web and in-store operation screens for a major telecom service",
+        "Worked across requirements definition, design, development, and testing within a framework structured into BFF, BS, and Integration layers",
+        "Developed automation tools to generate YAML and DTOs directly from Excel-based API specification documents",
+        "Implemented using VBA, PowerShell, Batch scripts, TypeScript/Java DTOs, and Python for file operations",
       ],
     },
   ];
