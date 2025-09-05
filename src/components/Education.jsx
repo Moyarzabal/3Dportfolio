@@ -14,94 +14,100 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Education = () => {
   useGSAP(() => {
-    // Loop through each timeline card and animate them in
-    // as the user scrolls to each card
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      // Animate the card coming in from the left
-      // and fade in
-      gsap.from(card, {
-        // Move the card in from the left
-        xPercent: -100,
-        // Make the card invisible at the start
-        opacity: 0,
-        // Set the origin of the animation to the left side of the card
-        transformOrigin: "left left",
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the card is 80% of the way down the screen
-        scrollTrigger: {
-          // The card is the trigger element
-          trigger: card,
-          // Trigger the animation when the card is 80% down the screen
-          start: "top 80%",
-        },
-      });
-    });
+    // タイムラインの初期状態を設定（アイコンは常に表示）
+    gsap.set(".timeline", { scaleY: 0, transformOrigin: "top top" });
+    gsap.set(".gradient-line", { scaleY: 0, transformOrigin: "top top" });
+    
+    // 全ての学歴カードを初期状態で非表示に設定
+    gsap.set(".exp-card-wrapper", { opacity: 0, y: 50 });
+    
+    // ロゴは常に表示されるように設定
+    gsap.set(".timeline-logo", { opacity: 1, scale: 1 });
 
-    // Animate the timeline height as the user scrolls
-    // from the top of the timeline to 70% down the screen
-    // The timeline height should scale down from 1 to 0
-    // as the user scrolls up the screen
+    // タイムラインのアニメーション（スクロールに連動）
     gsap.to(".timeline", {
-      // Set the origin of the animation to the bottom of the timeline
-      transformOrigin: "bottom bottom",
-      // Animate the timeline height over 1 second
-      ease: "power1.inOut",
-      // Trigger the animation when the timeline is at the top of the screen
-      // and end it when the timeline is at 70% down the screen
+      scaleY: 1,
+      ease: "none",
       scrollTrigger: {
-        trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-        // Update the animation as the user scrolls
-        onUpdate: (self) => {
-          // Scale the timeline height as the user scrolls
-          // from 1 to 0 as the user scrolls up the screen
-          gsap.to(".timeline", {
-            scaleY: 1 - self.progress,
-          });
-        },
+        trigger: ".timeline-wrapper",
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: 1,
+        pin: false,
       },
     });
 
-    // Loop through each expText element and animate them in
-    // as the user scrolls to each text element
-    gsap.utils.toArray(".expText").forEach((text) => {
-      // Animate the text opacity from 0 to 1
-      // and move it from the left to its final position
-      // over 1 second with a power2 ease-in-out curve
-      gsap.from(text, {
-        // Set the opacity of the text to 0
-        opacity: 0,
-        // Move the text from the left to its final position
-        // (xPercent: 0 means the text is at its final position)
-        xPercent: 0,
-        // Animate over 1 second
+    gsap.to(".gradient-line", {
+      scaleY: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".timeline-wrapper",
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: 1,
+        pin: false,
+      },
+    });
+
+    // 各学歴カードを順次表示
+    gsap.utils.toArray(".exp-card-wrapper").forEach((card, index) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
         duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the text is 60% down the screen
+        ease: "power2.out",
+        delay: index * 0.2, // 各カードに0.2秒の遅延
         scrollTrigger: {
-          // The text is the trigger element
-          trigger: text,
-          // Trigger the animation when the text is 60% down the screen
-          start: "top 60%",
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
         },
       });
-    }, "<"); // position parameter - insert at the start of the animation
+    });
+
+    // ロゴのアニメーション（アイコンは常に表示、軽微なエフェクトのみ）
+    gsap.utils.toArray(".timeline-logo").forEach((logo, index) => {
+      gsap.from(logo, {
+        scale: 0.8,
+        rotation: -90,
+        duration: 0.6,
+        ease: "back.out(1.2)",
+        delay: index * 0.2 + 0.3,
+        scrollTrigger: {
+          trigger: logo.closest(".exp-card-wrapper"),
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    // テキストコンテンツのアニメーション
+    gsap.utils.toArray(".expText").forEach((text, index) => {
+      gsap.from(text, {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+        ease: "power2.out",
+        delay: index * 0.2 + 0.5,
+        scrollTrigger: {
+          trigger: text.closest(".exp-card-wrapper"),
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
   }, []);
 
   return (
     <section
       id="education"
-      className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
+      className="flex-center md:mt-40 mt-20 section-padding xl:px-0 md:mb-40 mb-20"
     >
-      <div className="w-full h-full md:px-20 px-5">
-        <motion.div variants={textVariant()} className="text-left">
-          <p className={`${styles.sectionSubText} text-left`}>What I have learned</p>
-          <h2 className={`${styles.sectionHeadText} text-left`}>Education.</h2>
+      <div className="w-full h-full md:px-20 px-5 flex justify-center">
+        <div className="w-4/5 max-w-4xl">
+        <motion.div variants={textVariant()} className="text-center">
+          <p className={`${styles.sectionSubText} text-center`}>What I have learned</p>
+          <h2 className={`${styles.sectionHeadText} text-center`}>Education.</h2>
         </motion.div>
         <div className="mt-32 relative px-10">
           <div className="relative z-50 xl:space-y-32 space-y-10">
@@ -109,7 +115,7 @@ const Education = () => {
               <div className="timeline" />
               <div className="gradient-line w-1 h-full" />
             </div>
-            {edcCards.map((card) => (
+            {edcCards.map((card, index) => (
               <div key={card.title} className="exp-card-wrapper">
                 {/* <div className="xl:w-2/6">
                   <GlowCard card={card}>
@@ -126,7 +132,7 @@ const Education = () => {
                         <img src={card.logoPath} alt="logo" className="w-16 h-16 object-contain" />
                       </div>
                       <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
+                        <h1 className="font-semibold text-3xl whitespace-pre-line">{card.title}</h1>
                         <p className="my-5 text-white-50">
                           <img src="/images/1018.png" alt="calendar" className="w-5 h-5 inline mr-2" />
                           {card.date}
@@ -147,6 +153,7 @@ const Education = () => {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>

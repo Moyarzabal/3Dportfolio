@@ -71,12 +71,12 @@ const AppShowcase = () => {
                 rel="noopener noreferrer"
                 className="block hover:opacity-80 transition"
               >
-                <div className="image-wrapper bg-[#ffffff]">
+                <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
                   <img src="/images/Research11.png" alt="Ryde App Interface" />
                 </div>
                 <div className="text-content">
-                  <h2>Who Are You, Again?: Effect of Changing Partners' Avatars and Virtual Environments on Profile Memory</h2>
-                  <p className="text-white-50 md:text-xl">
+                  <h2 className="text-lg md:text-xl font-semibold text-white leading-relaxed">Who Are You, Again?: Effect of Changing Partners' Avatars and Virtual Environments on Profile Memory</h2>
+                  <p className="text-sm md:text-base text-gray-300 mt-2">
                     ACM Symposium on Applied Perception 2023 (SAP '23)
                   </p>
                 </div>
@@ -91,16 +91,16 @@ const AppShowcase = () => {
                   rel="noopener noreferrer"
                   className="block hover:opacity-80 transition"
                 >
-                  <div className="image-wrapper bg-[#ffffff]">
+                  <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
                     <img
                       src="/images/Research2.png"
                       alt="Library Management Platform"
                     />
                   </div>
-                  <h2>
+                  <h2 className="text-base md:text-lg font-semibold text-white leading-relaxed">
                     Effects of Human and Animal Partner-Avatars on Profile Memory in Virtual Reality
                   </h2>
-                  <p className="text-white-50 md:text-xl">
+                  <p className="text-sm md:text-base text-gray-300 mt-2">
                     ACM Symposium on Applied Perception 2024 (SAP '24)
                   </p>
                 </a>
@@ -113,13 +113,13 @@ const AppShowcase = () => {
                   rel="noopener noreferrer"
                   className="block hover:opacity-80 transition"
                 >
-                  <div className="image-wrapper bg-[#ffffff]">
+                  <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
                     <img src="/images/Research3.png" alt="YC Directory App" />
                   </div>
-                  <h2>
+                  <h2 className="text-base md:text-lg font-semibold text-white leading-relaxed">
                     セルフアバタによる身体化がVR回想法に与える効果
                   </h2>
-                  <p className="text-white-50 md:text-xl">
+                  <p className="text-sm md:text-base text-gray-300 mt-2">
                     第29回日本バーチャルリアリティ学会大会論文集(2024)
                   </p>
                 </a>
@@ -137,16 +137,16 @@ const AppShowcase = () => {
                   rel="noopener noreferrer"
                   className="block hover:opacity-80 transition"
                 >
-                  <div className="image-wrapper bg-[#ffffff]">
+                  <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
                     <img
                       src="/images/Research4.png"
                       alt="Library Management Platform"
                     />
                   </div>
-                  <h2>
+                  <h2 className="text-base md:text-lg font-semibold text-white leading-relaxed">
                     Multiple Self-Avatar Effect: Effects of Using Diverse Self-Avatars on Memory Acquisition and Retention of Sign-Language Gestures (2nd Author)
                   </h2>
-                  <p className="text-white-50 md:text-xl">
+                  <p className="text-sm md:text-base text-gray-300 mt-2">
                     IEEE Transactions on Visualization and Computer Graphics (2024)
                   </p>
                 </a>
@@ -159,32 +159,32 @@ const AppShowcase = () => {
                   rel="noopener noreferrer"
                   className="block hover:opacity-80 transition"
                 >
-                  <div className="image-wrapper bg-[#ffffff]">
+                  <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
                     <img src="/images/Research5.png" alt="YC Directory App" />
                   </div>
-                  <h2>
+                  <h2 className="text-base md:text-lg font-semibold text-white leading-relaxed">
                     Exploring the Effects of Self-Avatars on Virtual Reality-Based Reminiscence Therapy for Young Adults
                   </h2>
-                  <p className="text-white-50 md:text-xl">
+                  <p className="text-sm md:text-base text-gray-300 mt-2">
                     2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)
                   </p>
                 </a>
               </div>
             </div>
             <div ref={research6Ref} className="final-project-wrapper">
-              <div className="image-wrapper bg-[#ffffff]">
+              <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
                 <img src="/images/Research6.png" alt="Ryde App Interface" />
               </div>
               <div className="text-content">
-                <h2>
+                <h2 className="text-lg md:text-xl font-semibold text-white leading-relaxed">
                   Back to the Childhood: Investigating the Role of Self-Avatars in Virtual Reality-Based Reminiscence Therapy
                 </h2>
-                <p className="text-white-50 md:text-xl">
+                <p className="text-sm md:text-base text-gray-300 mt-2">
                   The Augmented Humans International Conference 2025
                 </p>
               </div>
-              <div className="bg-sky-100 rounded-2xl flex flex-col justify-center items-center h-80 shadow-md border border-gray-200 mt-20">
-                <span className="text-5xl text-gray-400 font-pacifico">Coming Soon...?</span>
+              <div className="bg-gradient-to-br from-violet-900/10 via-purple-900/20 to-pink-900/10 border border-violet-500/20 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center h-80 shadow-md mt-20">
+                <span className="text-5xl text-violet-300 font-pacifico">Coming Soon...?</span>
               </div>
             </div>
             {/* <div ref={presentationRef} className="presentation-project-wrapper">

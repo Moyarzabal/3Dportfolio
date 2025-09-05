@@ -332,7 +332,7 @@ import {
     {
       // imgPath: "/images/exp2.png",
       logoPath: "/images/utokyo.png",
-      title: "東京大学 理科一類 → 工学部 機械情報工学科",
+      title: "東京大学\n理科一類 → 工学部 機械情報工学科",
       date: "Apr. 2019 ~ Mar. 2023",
       responsibilities: [
         "Bachelor's degree at the Department of Mechano-Infomatics, The University of Tokyo"
@@ -341,7 +341,7 @@ import {
     {
       // imgPath: "/images/exp3.png",
       logoPath: "/images/utokyo.png",
-      title: "東京大学大学院 情報理工学系研究科 知能機械情報学専攻（修士課程）",
+      title: "東京大学大学院 情報理工学系研究科 \n知能機械情報学専攻（修士課程）",
       date: "Apr. 2023 ~ Mar. 2025",
       responsibilities: [
         "Master's degree at the Department of Mechano-Informatics, Graduate School of Information Science and Technology, The University of Tokyo"

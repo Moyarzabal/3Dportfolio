@@ -14,7 +14,7 @@ export function OrbitingCircles({
 }) {
   const calculatedDuration = duration / speed;
   return (
-    <>
+    <div className="absolute inset-0 flex items-center justify-center">
       {path && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +39,8 @@ export function OrbitingCircles({
               "--radius": radius,
               "--angle": angle,
               "--icon-size": `${iconSize}px`,
+              transformOrigin: "center",
+              transform: `rotate(${angle}deg) translateY(-${radius}px) rotate(-${angle}deg)`,
             }}
             className={twMerge(
               `absolute flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full ${
@@ -52,6 +54,6 @@ export function OrbitingCircles({
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
