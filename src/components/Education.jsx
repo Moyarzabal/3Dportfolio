@@ -101,16 +101,16 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="flex-center md:mt-40 mt-20 section-padding xl:px-0 md:mb-40 mb-20"
+      className="flex-center section-padding section-spacing xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5 flex justify-center">
-        <div className="w-4/5 max-w-4xl">
+        <div className="w-full lg:w-4/5 max-w-4xl">
         <motion.div variants={textVariant()} className="text-center">
           <p className={`${styles.sectionSubText} text-center`}>What I have learned</p>
           <h2 className={`${styles.sectionHeadText} text-center`}>Education.</h2>
         </motion.div>
-        <div className="mt-32 relative px-10">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
+        <div className="mt-16 lg:mt-32 relative px-5 lg:px-10">
+          <div className="relative z-50 xl:space-y-32 lg:space-y-20 space-y-8">
             <div className="timeline-wrapper">
               <div className="timeline" />
               <div className="gradient-line w-1 h-full" />
@@ -127,20 +127,20 @@ const Education = () => {
                 <div className="w-full">
                   <div className="flex items-start">
                     
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
+                    <div className="expText flex xl:gap-20 md:gap-10 gap-3 lg:gap-5 relative z-20">
                       <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" className="w-16 h-16 object-contain" />
+                        <img src={card.logoPath} alt="logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain" />
                       </div>
                       <div>
-                        <h1 className="font-semibold text-3xl whitespace-pre-line">{card.title}</h1>
-                        <p className="my-5 text-white-50">
-                          <img src="/images/1018.png" alt="calendar" className="w-5 h-5 inline mr-2" />
+                        <h1 className="font-semibold text-lg lg:text-3xl whitespace-pre-line">{card.title}</h1>
+                        <p className="my-3 lg:my-5 text-white-50">
+                          <img src="/images/1018.png" alt="calendar" className="w-4 h-4 lg:w-5 lg:h-5 inline mr-2" />
                           {card.date}
                         </p>
-                        <div className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                        <div className="list-disc ms-5 mt-3 lg:mt-5 flex flex-col gap-3 lg:gap-5 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <p key={index} className="text-lg">
+                              <p key={index} className="text-sm lg:text-lg">
                                 {responsibility}
                               </p>
                             )

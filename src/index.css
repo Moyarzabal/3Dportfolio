@@ -222,18 +222,55 @@ body {
 }
 
 /* Hero section layout */
+  /* Section Spacing */
+  .section-spacing {
+    @apply py-16 md:py-20;
+  }
+
+  /* Horizontal Scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom Scroll Indicator */
+  .scroll-indicator {
+    position: relative;
+  }
+  
+  .scroll-indicator::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #8B5CF6, transparent);
+    border-radius: 2px;
+    animation: scrollHint 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollHint {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
   /* Hero Section */
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-24 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 xl:mt-20 mt-24 md:h-dvh h-[50vh] flex xl:items-center items-start justify-center;
   }
 
   .hero-text {
     @apply flex flex-col justify-center relative z-10 pointer-events-none;
-
+    
     img {
       @apply size-8 md:size-10 object-contain;
     }
-
+    
     .slide {
       @apply absolute pt-0 px-2 md:px-5 py-[30px] overflow-hidden;
       height: 1.2em;
@@ -786,7 +823,7 @@ body {
 
   .exp-card-wrapper {
     @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between;
-}
+  }
 
   @layer base {
   .theme {
@@ -807,7 +844,7 @@ body {
   @keyframes shine {
   0% {
     background-position: 0% 0%;
-    }
+  }
   50% {
     background-position: 100% 100%;
     }
