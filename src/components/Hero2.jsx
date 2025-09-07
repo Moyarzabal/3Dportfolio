@@ -16,18 +16,18 @@ const Hero2 = () => {
   });
 
   return (
-    <section id="about" className="relative overflow-hidden">
+    <section id="top" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
         <img src="/images/bg.png" alt="" />
       </div>
 
       <div className="hero-layout">
         {/* LEFT: Hero Content */}
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header className="flex flex-col justify-start md:pt-0 pt-10 md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <div className="hero-text">
               <h1>
-                Shaping
+                Shaping the
                 <span className="slide">
                   <span className="wrapper">
                     {words.map((word, index) => (
@@ -35,41 +35,43 @@ const Hero2 = () => {
                         key={index}
                         className="flex items-center md:gap-3 gap-1 pb-2"
                       >
-                        <img
-                          src={word.imgPath}
-                          alt="person"
-                          className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                        />
-                        <span>{word.text}</span>
+                        {word}
                       </span>
                     ))}
                   </span>
                 </span>
               </h1>
-              <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
+              <h1>through the power of technology</h1>
+              <h1>beyond imagination.</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I'm <strong className="text-blue-200 text-2xl">Shun,</strong><br></br>
-              a solution engineer <br></br>
-              with a passion for technology.
+            <p className="text-white-50 md:text-xl mb-5 relative z-10 pointer-events-none">
+              Hi, I'm <strong className="text-blue-200 text-2xl">Shun, </strong>
+              a solution engineer<br></br>
+              passionate about creating impactful technology solutions.
             </p>
 
-            <Button
-              text="See My Work"
-              className="md:w-80 md:h-16 w-60 h-12"
-              id="works"
-            />
+            <div className="flex flex-col md:flex-row gap-10 md:ml-16 ml-6">
+              <Button
+                text="See My Work"
+                className="md:w-64 md:h-14 w-52 h-10"
+                id="works"
+              />
+              <Button
+                text="Enter My Room"
+                className="md:w-64 md:h-14 w-52 h-10 enter-room-btn"
+                id="about"
+              />
+            </div>
           </div>
         </header>
 
         {/* RIGHT: 3D Model or Visual */}
-        {/* <figure>
+        <figure>
           <div className="hero-3d-layout">
             <HeroExperience />
           </div>
-        </figure> */}
+        </figure>
       </div>
 
       {/* <AnimatedCounter /> */}

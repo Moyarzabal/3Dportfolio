@@ -302,21 +302,23 @@ import {
   ];
 
   const words = [
-    { text: "Ideas", imgPath: "/images/ideas.svg" },
-    { text: "Concepts", imgPath: "/images/concepts.svg" },
-    { text: "Designs", imgPath: "/images/designs.svg" },
-    { text: "Code", imgPath: "/images/code.svg" },
-    { text: "Ideas", imgPath: "/images/ideas.svg" },
-    { text: "Concepts", imgPath: "/images/concepts.svg" },
-    { text: "Designs", imgPath: "/images/designs.svg" },
-    { text: "Code", imgPath: "/images/code.svg" },
+    "Future",
+    "World", 
+    "Dreams",
+    "Destiny",
+    "Innovation",
+    "Future",
+    "World",
+    "Dreams", 
+    "Destiny",
+    "Innovation"
   ];
   
   const counterItems = [
-    { value: 15, suffix: "+", label: "Years of Experience" },
-    { value: 200, suffix: "+", label: "Satisfied Clients" },
-    { value: 108, suffix: "+", label: "Completed Projects" },
-    { value: 90, suffix: "%", label: "Client Retention Rate" },
+    { value: 6, suffix: "+", label: "Years of Experience" },
+    { value: 6, suffix: "+", label: "Published Papers" },
+    { value: 8, suffix: "+", label: "Completed Projects" },
+    { value: 2, suffix: "+", label: "Academic Degrees" },
   ];
 
   const edcCards = [

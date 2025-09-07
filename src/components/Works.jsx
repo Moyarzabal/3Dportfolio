@@ -82,11 +82,11 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories. It reflects my
-          ability to solve complex problems, passion for technology,
-          and manage projects effectively.
+          These projects demonstrate my technical expertise and problem-solving approach
+          through practical implementations and real-world applications. Each project
+          includes detailed descriptions and source code access, showcasing my
+          capability to tackle challenging technical problems, drive innovation,
+          and deliver high-quality solutions.
         </motion.p>
       </div>
       <section className="mt-8 mb-20">
@@ -102,18 +102,18 @@ const Works = () => {
               </div>
               <div className="space-y-4 mb-8">
                 <p className="text-gray-300 text-base leading-relaxed max-w-md">
-                  A curated collection of cutting-edge technologies and frameworks
-                  that power my creative vision into reality.
+                  An extensive toolkit of modern technologies and innovative frameworks
+                  that enable me to transform complex ideas into practical solutions.
                 </p>
                                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-violet-900/20 to-purple-900/30 text-violet-200 rounded-full border border-violet-400/30">
                       Full-Stack
                     </span>
                     <span className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-purple-900/20 to-pink-900/30 text-purple-200 rounded-full border border-purple-400/30">
-                      Cloud Native
+                      Modern
                     </span>
                     <span className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-pink-900/20 to-violet-900/30 text-pink-200 rounded-full border border-pink-400/30">
-                      Modern
+                      Innovation
                     </span>
                   </div>
               </div>

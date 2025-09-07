@@ -35,11 +35,17 @@ const Navbar = () => {
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
-          to='/'
+          to='#top'
           className='flex items-center gap-2'
           onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
+            setActive("About");
+            const topSection = document.getElementById('top');
+            if (topSection) {
+                topSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
           }}
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
