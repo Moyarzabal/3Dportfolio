@@ -73,7 +73,7 @@ const Education = () => {
         duration: 0.6,
         ease: "back.out(1.2)",
         delay: index * 0.2 + 0.3,
-        scrollTrigger: {
+      scrollTrigger: {
           trigger: logo.closest(".exp-card-wrapper"),
           start: "top 85%",
           toggleActions: "play none none reverse",
@@ -103,44 +103,36 @@ const Education = () => {
       id="education"
       className="flex-center section-padding section-spacing xl:px-0"
     >
-      <div className="w-full h-full md:px-20 px-5 flex justify-center">
+      <div className="w-full h-full md:px-20 px-4 flex justify-center">
         <div className="w-full lg:w-4/5 max-w-4xl">
         <motion.div variants={textVariant()} className="text-center">
           <p className={`${styles.sectionSubText} text-center`}>What I have learned</p>
           <h2 className={`${styles.sectionHeadText} text-center`}>Education.</h2>
         </motion.div>
-        <div className="mt-16 lg:mt-32 relative px-5 lg:px-10">
-          <div className="relative z-50 xl:space-y-32 lg:space-y-20 space-y-8">
+        <div className="mt-8 md:mt-16 lg:mt-32 relative px-2 md:px-5 lg:px-10">
+          <div className="relative z-50 xl:space-y-32 lg:space-y-20 md:space-y-12 space-y-6">
             <div className="timeline-wrapper">
               <div className="timeline" />
               <div className="gradient-line w-1 h-full" />
             </div>
             {edcCards.map((card, index) => (
               <div key={card.title} className="exp-card-wrapper">
-                {/* <div className="xl:w-2/6">
-                  <GlowCard card={card}>
-                    <div>
-                      <img src={card.imgPath} alt="exp-img" />
-                    </div>
-                  </GlowCard>
-                </div> */} 
                 <div className="w-full">
                   <div className="flex items-start">
-                    
                     <div className="expText flex xl:gap-20 md:gap-10 gap-3 lg:gap-5 relative z-20">
-                      <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain" />
+                      <div className="timeline-logo flex-shrink-0">
+                        <img src={card.logoPath} alt="logo" className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain" />
                       </div>
-                      <div>
-                        <h1 className="font-semibold text-lg lg:text-3xl whitespace-pre-line">{card.title}</h1>
-                        <p className="my-3 lg:my-5 text-white-50">
-                          <img src="/images/1018.png" alt="calendar" className="w-4 h-4 lg:w-5 lg:h-5 inline mr-2" />
+                      <div className="flex-1 min-w-0">
+                        <h1 className="font-semibold text-base md:text-lg lg:text-3xl whitespace-pre-line leading-tight">{card.title}</h1>
+                        <p className="my-2 md:my-3 lg:my-5 text-white-50 text-sm md:text-base">
+                          <img src="/images/1018.png" alt="calendar" className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 inline mr-2" />
                           {card.date}
                         </p>
-                        <div className="list-disc ms-5 mt-3 lg:mt-5 flex flex-col gap-3 lg:gap-5 text-white-50">
+                        <div className="list-disc ms-3 md:ms-5 mt-2 md:mt-3 lg:mt-5 flex flex-col gap-2 md:gap-3 lg:gap-5 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <p key={index} className="text-sm lg:text-lg">
+                              <p key={index} className="text-xs md:text-sm lg:text-lg leading-relaxed">
                                 {responsibility}
                               </p>
                             )
@@ -153,7 +145,7 @@ const Education = () => {
               </div>
             ))}
           </div>
-        </div>
+          </div>
         </div>
       </div>
     </section>
