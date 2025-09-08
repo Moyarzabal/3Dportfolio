@@ -14,15 +14,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Education = () => {
   useGSAP(() => {
-    // タイムラインの初期状態を設定（アイコンは常に表示）
+    // タイムラインの初期状態を設定
     gsap.set(".timeline", { scaleY: 0, transformOrigin: "top top" });
     gsap.set(".gradient-line", { scaleY: 0, transformOrigin: "top top" });
     
     // 全ての学歴カードを初期状態で非表示に設定
-    gsap.set(".exp-card-wrapper", { opacity: 0, y: 50 });
+    gsap.set(".exp-card-wrapper", { opacity: 0, y: 30 });
     
-    // ロゴは常に表示されるように設定
-    gsap.set(".timeline-logo", { opacity: 1, scale: 1 });
+    // ロゴの初期状態を設定
+    gsap.set(".timeline-logo", { opacity: 0, scale: 0.8 });
+    
+    // テキストの初期状態を設定
+    gsap.set(".expText", { opacity: 0, x: -30 });
 
     // タイムラインのアニメーション（スクロールに連動）
     gsap.to(".timeline", {
@@ -54,28 +57,26 @@ const Education = () => {
       gsap.to(card, {
         opacity: 1,
         y: 0,
-        duration: 1,
+        duration: 0.8,
         ease: "power2.out",
-        delay: index * 0.2, // 各カードに0.2秒の遅延
         scrollTrigger: {
           trigger: card,
-          start: "top 85%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       });
     });
 
-    // ロゴのアニメーション（アイコンは常に表示、軽微なエフェクトのみ）
+    // ロゴのアニメーション
     gsap.utils.toArray(".timeline-logo").forEach((logo, index) => {
-      gsap.from(logo, {
-        scale: 0.8,
-        rotation: -90,
+      gsap.to(logo, {
+        opacity: 1,
+        scale: 1,
         duration: 0.6,
         ease: "back.out(1.2)",
-        delay: index * 0.2 + 0.3,
-      scrollTrigger: {
+        scrollTrigger: {
           trigger: logo.closest(".exp-card-wrapper"),
-          start: "top 85%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       });
@@ -83,15 +84,14 @@ const Education = () => {
 
     // テキストコンテンツのアニメーション
     gsap.utils.toArray(".expText").forEach((text, index) => {
-      gsap.from(text, {
-        opacity: 0,
-        x: -50,
-        duration: 1,
+      gsap.to(text, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
         ease: "power2.out",
-        delay: index * 0.2 + 0.5,
         scrollTrigger: {
           trigger: text.closest(".exp-card-wrapper"),
-          start: "top 85%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       });
