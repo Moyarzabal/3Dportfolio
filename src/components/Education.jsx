@@ -14,88 +14,101 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Education = () => {
   useGSAP(() => {
-    // タイムラインの初期状態を設定
-    gsap.set(".timeline", { scaleY: 0, transformOrigin: "top top" });
-    gsap.set(".gradient-line", { scaleY: 0, transformOrigin: "top top" });
+    // モバイル判定
+    const isMobile = window.innerWidth < 768;
     
-    // 全ての学歴カードを初期状態で非表示に設定
-    gsap.set(".exp-card-wrapper", { opacity: 0, y: 30 });
-    
-    // ロゴの初期状態を設定
-    gsap.set(".timeline-logo", { opacity: 0, scale: 0.8 });
-    
-    // テキストの初期状態を設定
-    gsap.set(".expText", { opacity: 0, x: -30 });
+    if (isMobile) {
+      // モバイル版: 全ての要素を最初から表示
+      gsap.set(".timeline", { scaleY: 1 });
+      gsap.set(".gradient-line", { scaleY: 1 });
+      gsap.set(".exp-card-wrapper", { opacity: 1, y: 0 });
+      gsap.set(".timeline-logo", { opacity: 1, scale: 1 });
+      gsap.set(".expText", { opacity: 1, x: 0 });
+    } else {
+      // デスクトップ版: アニメーション設定
+      // タイムラインの初期状態を設定
+      gsap.set(".timeline", { scaleY: 0, transformOrigin: "top top" });
+      gsap.set(".gradient-line", { scaleY: 0, transformOrigin: "top top" });
+      
+      // 全ての学歴カードを初期状態で非表示に設定
+      gsap.set(".exp-card-wrapper", { opacity: 0, y: 30 });
+      
+      // ロゴの初期状態を設定
+      gsap.set(".timeline-logo", { opacity: 0, scale: 0.8 });
+      
+      // テキストの初期状態を設定
+      gsap.set(".expText", { opacity: 0, x: -30 });
 
-    // タイムラインのアニメーション（スクロールに連動）
-    gsap.to(".timeline", {
-      scaleY: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".timeline-wrapper",
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: 1,
-        pin: false,
-      },
-    });
-
-    gsap.to(".gradient-line", {
-      scaleY: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".timeline-wrapper",
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: 1,
-        pin: false,
-      },
-    });
-
-    // 各学歴カードを順次表示
-    gsap.utils.toArray(".exp-card-wrapper").forEach((card, index) => {
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
+      // タイムラインのアニメーション（スクロールに連動）
+      gsap.to(".timeline", {
+        scaleY: 1,
+        ease: "none",
         scrollTrigger: {
-          trigger: card,
+          trigger: ".timeline-wrapper",
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          end: "bottom 20%",
+          scrub: 1,
+          pin: false,
         },
       });
-    });
 
-    // ロゴのアニメーション
-    gsap.utils.toArray(".timeline-logo").forEach((logo, index) => {
-      gsap.to(logo, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.6,
-        ease: "back.out(1.2)",
+      gsap.to(".gradient-line", {
+        scaleY: 1,
+        ease: "none",
         scrollTrigger: {
-          trigger: logo.closest(".exp-card-wrapper"),
+          trigger: ".timeline-wrapper",
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          end: "bottom 20%",
+          scrub: 1,
+          pin: false,
         },
       });
-    });
 
-    // テキストコンテンツのアニメーション
-    gsap.utils.toArray(".expText").forEach((text, index) => {
-      gsap.to(text, {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text.closest(".exp-card-wrapper"),
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
+      // 各学歴カードを順次表示
+      gsap.utils.toArray(".exp-card-wrapper").forEach((card, index) => {
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        });
       });
-    });
+
+      // ロゴのアニメーション
+      gsap.utils.toArray(".timeline-logo").forEach((logo, index) => {
+        gsap.to(logo, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: "back.out(1.2)",
+          scrollTrigger: {
+            trigger: logo.closest(".exp-card-wrapper"),
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+
+      // テキストコンテンツのアニメーション
+      gsap.utils.toArray(".expText").forEach((text, index) => {
+        gsap.to(text, {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: text.closest(".exp-card-wrapper"),
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+    }
   }, []);
 
   return (
