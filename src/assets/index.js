@@ -33,6 +33,7 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import threeDportfolio from "./3Dportfolio.png";
+import Edibuddy from "./Edibuddy.png";
 import virtualRubik from "./v_rubik_cube.png";
 import portfolio from "./portfolio.png";
 import backToTheChildhood from "./back_to_the_childhood.png";
@@ -72,6 +73,7 @@ export {
   jobit,
   tripguide,
   threeDportfolio,
+  Edibuddy,
   virtualRubik,
   portfolio,
   backToTheChildhood,

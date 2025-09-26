@@ -17,6 +17,7 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  additional_links,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -64,6 +65,27 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
+
+        {/* Additional Links Section */}
+        {additional_links && additional_links.length > 0 && (
+          <div className='mt-4 pt-4 border-t border-gray-700'>
+            <p className='text-gray-400 text-sm mb-2'>関連リンク:</p>
+            <div className='flex flex-wrap gap-2'>
+              {additional_links.map((link, linkIndex) => (
+                <button
+                  key={`${name}-link-${linkIndex}`}
+                  onClick={() => window.open(link.url, "_blank")}
+                  className='px-3 py-1 text-xs bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center gap-1'
+                >
+                  {link.type === 'zenn' && '📝'}
+                  {link.type === 'youtube' && '🎥'}
+                  {link.type === 'website' && '🌐'}
+                  {link.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </Tilt>
     </motion.div>
   );
