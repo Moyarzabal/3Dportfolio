@@ -28,7 +28,7 @@ import tesla from "./company/tesla.png";
 import QQBridge from "./company/QQBridge.png";
 import utokyo from "./company/utokyo.png";
 import fujitsu from "./company/fujitsu.png";
-
+import Ranking from "./Ranking.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
@@ -74,6 +74,7 @@ export {
   tripguide,
   threeDportfolio,
   Edibuddy,
+  Ranking,
   virtualRubik,
   portfolio,
   backToTheChildhood,

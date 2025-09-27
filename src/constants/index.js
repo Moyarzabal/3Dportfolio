@@ -21,6 +21,7 @@ import {
   threejs,
   threeDportfolio,
   Edibuddy,
+  Ranking,
   virtualRubik,
   portfolio,
   backToTheChildhood,
@@ -197,31 +198,41 @@ const testimonials = [
 ];
 
 const projects = [
-    {
-      name: "Edibuddy",
-      description: "Edibuddyは、冷蔵庫の食材をAIでキャラクター化し、賞味期限に応じて表情や感情を変化させるユニークなアプリです。ユーザーはまるで食材と友達のように接しながら、期限切れを楽しく防げます。さらにAIが冷蔵庫の中身から献立を提案することで、自然に食品ロスを減らし、持続可能な暮らしをサポートします。\n" +
-        "「食材に愛着を持つことで、楽しくフードロスを削減する」――それがEdibuddyです。",
-      tags: [
-        { name: "Google Cloud", color: "blue-text-gradient" },
-        { name: "flutter", color: "green-text-gradient" },
-        { name: "ADK(Agent Development Kit)", color: "pink-text-gradient" },
-        { name: "Firebase", color: "orange-text-gradient" },
-      ],
-      image: Edibuddy,
-      source_code_link: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
-      additional_links: [
-        {
-          type: "zenn",
-          url: "https://zenn.dev/moyarzabalstake/articles/d102dde6403bc9",
-          label: "Zenn記事"
-        },
-        {
-          type: "youtube",
-          url: "https://youtu.be/tLUlEh-jQFA", // 実際のYouTube動画URLに置き換えてください
-          label: "YouTube動画"
-        }
-      ]
-    },
+  {
+    name: "Edibuddy",
+    description: "Edibuddyは、冷蔵庫の食材をAIでキャラクター化し、賞味期限に応じて表情や感情を変化させるユニークなアプリです。ユーザーはまるで食材と友達のように接しながら、期限切れを楽しく防げます。さらにAIが冷蔵庫の中身から献立を提案することで、自然に食品ロスを減らし、持続可能な暮らしをサポートします。\n" +
+      "「食材に愛着を持つことで、楽しくフードロスを削減する」――それがEdibuddyです。",
+    tags: [
+      { name: "Google Cloud", color: "blue-text-gradient" },
+      { name: "flutter", color: "green-text-gradient" },
+      { name: "ADK(Agent Development Kit)", color: "pink-text-gradient" },
+      { name: "Firebase", color: "orange-text-gradient" },
+    ],
+    image: Edibuddy,
+    source_code_link: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
+    additional_links: [
+      {
+        type: "zenn",
+        url: "https://zenn.dev/moyarzabalstake/articles/d102dde6403bc9",
+        label: "Zenn記事"
+      },
+      {
+        type: "youtube",
+        url: "https://youtu.be/tLUlEh-jQFA", // 実際のYouTube動画URLに置き換えてください
+        label: "YouTube動画"
+      }
+    ]
+  },
+  {
+    name: "価値観Ranking",
+    description: "あなたの価値観を可視化し、友達との価値観の違いを楽しく発見できるモバイルアプリです。出題者はお題に対する選択肢を順位づけして並べ，その順番を他のプレイヤーで当てるという，トランプで行われていた飲みゲームをアプリにしました！",
+    tags: [
+      { name: "React Native", color: "blue-text-gradient" },
+      { name: "Expo", color: "green-text-gradient" },
+    ],
+    image: Ranking,
+    source_code_link: "https://github.com/Moyarzabal/KachikanRanking",
+  },
   {
     name: "3D Portfolio Website (Current Project)",
     description:
