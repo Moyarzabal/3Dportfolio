@@ -219,7 +219,7 @@ const projects = [
       {
         type: "youtube",
         url: "https://youtu.be/tLUlEh-jQFA", // 実際のYouTube動画URLに置き換えてください
-        label: "YouTube動画"
+        label: "デモ動画"
       }
     ]
   },
@@ -232,6 +232,13 @@ const projects = [
     ],
     image: Ranking,
     source_code_link: "https://github.com/Moyarzabal/KachikanRanking",
+    additional_links: [
+      {
+        type: "youtube",
+        url: "https://youtu.be/C4SwNjsNxsY",
+        label: "デモ動画"
+      }
+    ]
   },
   {
     name: "3D Portfolio Website (Current Project)",
