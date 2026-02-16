@@ -17,7 +17,6 @@ const AppShowcase = () => {
   const research4Ref = useRef(null);
   const research5Ref = useRef(null);
   const research6Ref = useRef(null);
-  const presentationRef = useRef(null);
 
   useGSAP(() => {
     // Animation for the main section
@@ -28,7 +27,7 @@ const AppShowcase = () => {
     );
 
     // Animations for each app showcase
-    const cards = [research1Ref.current, research2Ref.current, research3Ref.current, research4Ref.current, research5Ref.current, research6Ref.current, presentationRef.current];
+    const cards = [research1Ref.current, research2Ref.current, research3Ref.current, research4Ref.current, research5Ref.current, research6Ref.current].filter(Boolean);
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -290,20 +289,27 @@ const AppShowcase = () => {
                 </div>
               </div>
               <div ref={research6Ref} className="final-project-wrapper">
-                <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
-                  <img src="/images/Research6.png" alt="Ryde App Interface" />
-                </div>
-                <div className="text-content">
-                  <h2 className="text-lg md:text-xl font-semibold text-white leading-relaxed">
-                    Back to the Childhood: Investigating the Role of Self-Avatars in Virtual Reality-Based Reminiscence Therapy
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-300 mt-2">
-                    The Augmented Humans International Conference 2025
-                  </p>
-                </div>
-                <div className="bg-gradient-to-br from-violet-900/10 via-purple-900/20 to-pink-900/10 border border-violet-500/20 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center h-80 shadow-md mt-20">
-                  <span className="text-5xl text-violet-300 font-pacifico">Coming Soon...?</span>
-                </div>
+                <a
+                  href="https://doi.org/10.1145/3745900.3746067"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:opacity-80 transition"
+                >
+                  <div className="image-wrapper bg-white rounded-lg border border-gray-200 shadow-sm">
+                    <img src="/images/Research6.png" alt="Ryde App Interface" />
+                  </div>
+                  <div className="text-content">
+                    <h2 className="text-lg md:text-xl font-semibold text-white leading-relaxed">
+                      Back to the Childhood: Investigating the Role of Self-Avatars in Virtual Reality-Based Reminiscence Therapy
+                    </h2>
+                    <p className="text-sm md:text-base text-gray-300 mt-2">
+                      The Augmented Humans International Conference 2025
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-br from-violet-900/10 via-purple-900/20 to-pink-900/10 border border-violet-500/20 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center h-80 shadow-md mt-20">
+                    <span className="text-5xl text-violet-300 font-pacifico">Coming Soon...?</span>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
