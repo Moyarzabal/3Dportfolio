@@ -21,6 +21,7 @@ import {
   threejs,
   threeDportfolio,
   Edibuddy,
+  Gymini,
   Ranking,
   virtualRubik,
   portfolio,
@@ -199,6 +200,35 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Gymini",
+    description: "ジム入会者の96%が1年以内に辞めてしまうほど、筋トレを継続するのは大変なことです。原因は「何をすればいいか分からない」「成果が見えない」こと。Gyminiアプリは、AIトレーナーRooちゃんがあなたの目標や生活スタイルに合わせて、相談に乗ってくれるとともに最適なメニューを提案し、トレーニングを記録・可視化してくれるアプリです 。高額なパーソナルトレーナーではなく、いつでもポケットの中にいる専属トレーナーとして、初心者でも迷わず続けられる運動習慣をつくります。",
+    tags: [
+      { name: "Google Cloud", color: "blue-text-gradient" },
+      { name: "flutter", color: "green-text-gradient" },
+      { name: "Gemini", color: "pink-text-gradient" },
+      { name: "Firebase", color: "orange-text-gradient" },
+    ],
+    image: Gymini,
+    source_code_link: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
+    additional_links: [
+      {
+        type: "appstore",
+        url: "https://apps.apple.com/jp/app/gymini/id6758005538#productRatings",
+        label: "デモ動画"
+      },
+      {
+        type: "zenn",
+        url: "https://zenn.dev/douxsh/articles/gymini-hackathon-2026",
+        label: "Zenn記事"
+      },
+      {
+        type: "youtube",
+        url: "https://youtu.be/mQ1dcKxOBv0",
+        label: "デモ動画"
+      }
+    ]
+  },
+  {
     name: "Edibuddy",
     description: "Edibuddyは、冷蔵庫の食材をAIでキャラクター化し、賞味期限に応じて表情や感情を変化させるユニークなアプリです。ユーザーはまるで食材と友達のように接しながら、期限切れを楽しく防げます。さらにAIが冷蔵庫の中身から献立を提案することで、自然に食品ロスを減らし、持続可能な暮らしをサポートします。\n" +
       "「食材に愛着を持つことで、楽しくフードロスを削減する」――それがEdibuddyです。",
@@ -235,7 +265,7 @@ const projects = [
     additional_links: [
       {
         type: "youtube",
-        url: "https://youtu.be/C4SwNjsNxsY",
+        url: "https://youtu.be/tsgqRMKCtU8",
         label: "デモ動画"
       }
     ]
