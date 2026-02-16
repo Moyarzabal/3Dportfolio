@@ -214,7 +214,7 @@ const projects = [
       {
         type: "appstore",
         url: "https://apps.apple.com/jp/app/gymini/id6758005538#productRatings",
-        label: "デモ動画"
+        label: "App Store"
       },
       {
         type: "zenn",
@@ -254,15 +254,21 @@ const projects = [
     ]
   },
   {
-    name: "価値観Ranking",
+    name: "Rank Party",
     description: "あなたの価値観を可視化し、友達との価値観の違いを楽しく発見できるモバイルアプリです。出題者はお題に対する選択肢を順位づけして並べ，その順番を他のプレイヤーで当てるという，トランプで行われていた飲みゲームをアプリにしました！",
     tags: [
       { name: "React Native", color: "blue-text-gradient" },
       { name: "Expo", color: "green-text-gradient" },
+      { name: "Gemini", color: "pink-text-gradient" },
     ],
     image: Ranking,
     source_code_link: "https://github.com/Moyarzabal/KachikanRanking",
     additional_links: [
+      {
+        type: "appstore",
+        url: "https://apps.apple.com/jp/app/rank-party/id6758461422",
+        label: "App Store"
+      },
       {
         type: "youtube",
         url: "https://youtu.be/tsgqRMKCtU8",
