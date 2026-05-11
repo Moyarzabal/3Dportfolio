@@ -1,5 +1,5 @@
 import logo from "./logo.png";
-import Manabix from "./Manabix.png";
+// import Manabix from "./Manabix.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -83,5 +83,5 @@ export {
   backToTheChildhood,
   vrBaseball,
   voidStrike,
-  Manabix,
+  // Manabix,
 };

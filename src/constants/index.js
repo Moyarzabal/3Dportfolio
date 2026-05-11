@@ -22,7 +22,7 @@ import {
   threeDportfolio,
   Edibuddy,
   Gymini,
-  Manabix,
+  // Manabix,
   Ranking,
   virtualRubik,
   portfolio,
@@ -200,25 +200,25 @@ const testimonials = [
 ];
 
 const projects = [
-  {
-    name: "Manabix",
-    description: "Manabixは、Meta Quest 3を活用した現場教育DXプラットフォームです。熟練者（Expert）の作業ノウハウをMR動画で記録し、AIが自動でマニュアル化。初学者（Learner）はARガイドを実空間に重ねながら学習できます。「暗黙知を形式知に変え、次世代へ効率的に技能伝承する」ことを目的としています。",
-    tags: [
-      { name: "C#/Unity", color: "blue-text-gradient" },
-      { name: "Prisma ORM", color: "green-text-gradient" },
-      { name: "Node.js/Typescript", color: "pink-text-gradient" },
-      { name: "PostgreSQL", color: "orange-text-gradient" },
-      { name: "Google Cloud", color: "purple-text-gradient" },
-    ],
-    image: Manabix,
-    additional_links: [
-      {
-        type: "youtube",
-        url: "https://youtube.com/playlist?list=PLJYQQdxQoN74Tb5xIYvUd6HLkMB06-1PD&si=HyifImdwmwqoaHjS",
-        label: "デモ動画"
-      }
-    ]
-  },
+  // {
+  //   name: "Manabix",
+  //   description: "Manabixは、Meta Quest 3を活用した現場教育DXプラットフォームです。熟練者（Expert）の作業ノウハウをMR動画で記録し、AIが自動でマニュアル化。初学者（Learner）はARガイドを実空間に重ねながら学習できます。「暗黙知を形式知に変え、次世代へ効率的に技能伝承する」ことを目的としています。",
+  //   tags: [
+  //     { name: "C#/Unity", color: "blue-text-gradient" },
+  //     { name: "Prisma ORM", color: "green-text-gradient" },
+  //     { name: "Node.js/Typescript", color: "pink-text-gradient" },
+  //     { name: "PostgreSQL", color: "orange-text-gradient" },
+  //     { name: "Google Cloud", color: "purple-text-gradient" },
+  //   ],
+  //   image: Manabix,
+  //   additional_links: [
+  //     {
+  //       type: "youtube",
+  //       url: "https://youtube.com/playlist?list=PLJYQQdxQoN74Tb5xIYvUd6HLkMB06-1PD&si=HyifImdwmwqoaHjS",
+  //       label: "デモ動画"
+  //     }
+  //   ]
+  // },
   {
     name: "Gymini",
     description: "ジム入会者の96%が1年以内に辞めてしまうほど、筋トレを継続するのは大変なことです。原因は「何をすればいいか分からない」「成果が見えない」こと。Gyminiアプリは、AIトレーナーRooちゃんがあなたの目標や生活スタイルに合わせて、相談に乗ってくれるとともに最適なメニューを提案し、トレーニングを記録・可視化してくれるアプリです 。高額なパーソナルトレーナーではなく、いつでもポケットの中にいる専属トレーナーとして、初心者でも迷わず続けられる運動習慣をつくります。",
