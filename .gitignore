@@ -27,3 +27,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# signature source font (re-download: https://github.com/google/fonts/raw/main/ofl/greatvibes/GreatVibes-Regular.ttf)
+scripts/*.ttf

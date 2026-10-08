@@ -1,164 +1,110 @@
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Calendar, GraduationCap } from "lucide-react";
 
-import { styles } from "../styles";
-import { edcCards } from "../constants";
-import TitleHeader from "../components/TitleHeader";
-import GlowCard from "../components/GlowCard";
-import { fadeIn, textVariant } from "../utils/motion";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal from "./ui/Reveal";
+import TiltCard from "./ui/TiltCard";
+import Snack from "./fx/Snack";
+import { education } from "@/constants";
 
-
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Education = () => {
-  useGSAP(() => {
-    // モバイル判定
-    const isMobile = window.innerWidth < 768;
-    
-    if (isMobile) {
-      // モバイル版: 全ての要素を最初から表示
-      gsap.set(".timeline", { scaleY: 1 });
-      gsap.set(".gradient-line", { scaleY: 1 });
-      gsap.set(".exp-card-wrapper", { opacity: 1, y: 0 });
-      gsap.set(".timeline-logo", { opacity: 1, scale: 1 });
-      gsap.set(".expText", { opacity: 1, x: 0 });
-    } else {
-      // デスクトップ版: アニメーション設定
-      // タイムラインの初期状態を設定
-      gsap.set(".timeline", { scaleY: 0, transformOrigin: "top top" });
-      gsap.set(".gradient-line", { scaleY: 0, transformOrigin: "top top" });
-      
-      // 全ての学歴カードを初期状態で非表示に設定
-      gsap.set(".exp-card-wrapper", { opacity: 0, y: 30 });
-      
-      // ロゴの初期状態を設定
-      gsap.set(".timeline-logo", { opacity: 0, scale: 0.8 });
-      
-      // テキストの初期状態を設定
-      gsap.set(".expText", { opacity: 0, x: -30 });
+  const root = useRef(null);
 
-      // タイムラインのアニメーション（スクロールに連動）
-      gsap.to(".timeline", {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".timeline-wrapper",
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: 1,
-          pin: false,
-        },
-      });
-
-      gsap.to(".gradient-line", {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".timeline-wrapper",
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: 1,
-          pin: false,
-        },
-      });
-
-      // 各学歴カードを順次表示
-      gsap.utils.toArray(".exp-card-wrapper").forEach((card, index) => {
-        gsap.to(card, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
+  useGSAP(
+    () => {
+      // the vertical line fills as you scroll through the list
+      gsap.fromTo(
+        ".edu-progress",
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
           scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
+            trigger: ".edu-list",
+            start: "top 70%",
+            end: "bottom 60%",
+            scrub: 0.6,
           },
+        }
+      );
+      // each node lights up when its card passes the middle
+      gsap.utils.toArray(".edu-node").forEach((node) => {
+        ScrollTrigger.create({
+          trigger: node,
+          start: "top 62%",
+          onEnter: () => node.classList.add("is-active"),
+          onLeaveBack: () => node.classList.remove("is-active"),
         });
       });
-
-      // ロゴのアニメーション
-      gsap.utils.toArray(".timeline-logo").forEach((logo, index) => {
-        gsap.to(logo, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: "back.out(1.2)",
-          scrollTrigger: {
-            trigger: logo.closest(".exp-card-wrapper"),
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        });
-      });
-
-      // テキストコンテンツのアニメーション
-      gsap.utils.toArray(".expText").forEach((text, index) => {
-        gsap.to(text, {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: text.closest(".exp-card-wrapper"),
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        });
-      });
-    }
-  }, []);
+    },
+    { scope: root }
+  );
 
   return (
-    <section
-      id="education"
-      className="flex-center section-padding section-spacing xl:px-0"
-    >
-      <div className="w-full h-full md:px-20 px-4 flex justify-center">
-        <div className="w-full lg:w-4/5 max-w-4xl">
-        <motion.div variants={textVariant()} className="text-center">
-          <p className={`${styles.sectionSubText} text-center`}>What I have learned</p>
-          <h2 className={`${styles.sectionHeadText} text-center`}>Education.</h2>
-        </motion.div>
-        <div className="mt-8 md:mt-16 lg:mt-32 relative px-2 md:px-5 lg:px-10">
-          <div className="relative z-50 xl:space-y-32 lg:space-y-20 md:space-y-12 space-y-6">
-            <div className="timeline-wrapper">
-              <div className="timeline" />
-              <div className="gradient-line w-1 h-full" />
-            </div>
-            {edcCards.map((card, index) => (
-              <div key={card.title} className="exp-card-wrapper">
-                <div className="w-full">
-                  <div className="flex items-start">
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-3 lg:gap-5 relative z-20">
-                      <div className="timeline-logo flex-shrink-0">
-                        <img src={card.logoPath} alt="logo" className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h1 className="font-semibold text-base md:text-lg lg:text-3xl whitespace-pre-line leading-tight">{card.title}</h1>
-                        <p className="my-2 md:my-3 lg:my-5 text-white-50 text-sm md:text-base">
-                          <img src="/images/1018.png" alt="calendar" className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 inline mr-2" />
-                          {card.date}
-                        </p>
-                        <div className="list-disc ms-3 md:ms-5 mt-2 md:mt-3 lg:mt-5 flex flex-col gap-2 md:gap-3 lg:gap-5 text-white-50">
-                          {card.responsibilities.map(
-                            (responsibility, index) => (
-                              <p key={index} className="text-xs md:text-sm lg:text-lg leading-relaxed">
-                                {responsibility}
-                              </p>
-                            )
-                          )}
+    <section id="education" ref={root} className="section">
+      <Snack id={1} className="left-[8%] top-[46%]" />
+      <div className="container-x">
+        <SectionHeading title="Education" align="center" />
+
+        <div className="edu-list relative mx-auto mt-16 max-w-4xl">
+          {/* rail */}
+          <div aria-hidden className="absolute bottom-0 left-5 top-0 w-px bg-white/10 md:left-1/2" />
+          <div
+            aria-hidden
+            className="edu-progress absolute bottom-0 left-5 top-0 w-px origin-top bg-gradient-to-b from-brand via-brand-pink to-brand-cyan md:left-1/2"
+          />
+
+          <ol className="flex flex-col gap-12 md:gap-20">
+            {education.map((item, i) => {
+              const left = i % 2 === 0;
+              return (
+                <li key={item.title} className="relative grid grid-cols-[2.5rem_1fr] gap-6 md:grid-cols-[1fr_4rem_1fr] md:gap-0">
+                  {/* node */}
+                  <div className="edu-node group relative z-10 flex justify-center md:col-start-2 md:row-start-1">
+                    <span className="absolute left-1/2 top-1 h-3 w-3 -translate-x-1/2 rounded-full border border-white/40 bg-bg transition-all duration-500 [.is-active_&]:scale-125 [.is-active_&]:border-brand-light [.is-active_&]:bg-brand [.is-active_&]:shadow-[0_0_24px_4px_rgba(139,92,246,.6)]" />
+                  </div>
+
+                  {/* year label (desktop) */}
+                  <Reveal
+                    x={left ? 30 : -30}
+                    y={0}
+                    className={`hidden md:flex md:row-start-1 ${left ? "md:col-start-3 md:pl-10" : "md:col-start-1 md:justify-end md:pr-10"}`}
+                  >
+                    <span className="text-6xl font-bold tracking-tighter text-white/[0.06] lg:text-8xl">{item.year}</span>
+                  </Reveal>
+
+                  {/* card */}
+                  <Reveal
+                    x={left ? -30 : 30}
+                    y={0}
+                    delay={0.05}
+                    className={`col-start-2 md:row-start-1 ${left ? "md:col-start-1 md:pr-10" : "md:col-start-3 md:pl-10"}`}
+                  >
+                    <TiltCard className="p-6 sm:p-7" maxTilt={5}>
+                      <div className="relative z-10 flex gap-4">
+                        <img src={item.logo} alt="" className="h-14 w-14 shrink-0 object-contain" loading="lazy" />
+                        <div className="min-w-0">
+                          <p className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-light">
+                            <Calendar size={12} /> {item.date}
+                          </p>
+                          <h3 className="mt-1.5 text-lg font-semibold leading-snug tracking-tight sm:text-xl">{item.title}</h3>
+                          <p className="mt-2 inline-flex items-start gap-1.5 text-sm leading-relaxed text-muted">
+                            <GraduationCap size={14} className="mt-0.5 shrink-0" />
+                            {item.subtitle}
+                          </p>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          </div>
+                    </TiltCard>
+                  </Reveal>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </div>
     </section>

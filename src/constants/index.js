@@ -1,28 +1,10 @@
 import {
-  mobile,
-  backend,
-  creator,
-  web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
-  docker,
   QQBridge,
   utokyo,
   fujitsu,
-  threejs,
   threeDportfolio,
   Edibuddy,
   Gymini,
-  // Manabix,
   Ranking,
   virtualRubik,
   portfolio,
@@ -32,443 +14,281 @@ import {
 } from "../assets";
 
 export const navLinks = [
+  { id: "about", title: "About" },
+  { id: "education", title: "Education" },
+  { id: "research", title: "Research" },
+  { id: "experience", title: "Experience" },
+  { id: "works", title: "Projects" },
+  { id: "contact", title: "Contact" },
+];
+
+export const socials = {
+  github: "https://github.com/Moyarzabal",
+  linkedin: "https://linkedin.com/in/shun-takenaka",
+  email: "moyarzabalstake@gmail.com",
+};
+
+export const heroWords = ["Future", "World", "Dreams", "Destiny", "Innovation"];
+
+export const stats = [
+  { value: 6, suffix: "+", label: "Years coding" },
+  { value: 6, suffix: "", label: "Publications" },
+  { value: 9, suffix: "+", label: "Projects shipped" },
+  { value: 2, suffix: "", label: "Degrees" },
+];
+
+export const expertise = [
+  "Full-Stack Development",
+  "Human-Computer Interaction",
+  "Virtual Reality",
+  "Cloud Architecture",
+  "AI-Driven Development",
+  "Research & Development",
+  "Mobile (Flutter / RN)",
+  "Unity / C#",
+  "Google Cloud",
+  "Vibe Coding",
+];
+
+export const techStack = [
+  "cplusplus",
+  "csharp",
+  "css3",
+  "github",
+  "html5",
+  "javascript",
+  "react",
+  "tailwindcss",
+  "threejs",
+  "typescript",
+  "VBA",
+  "python",
+  "Java",
+  "GCP",
+  "AWS",
+  "unity",
+  "vitejs",
+  "git",
+];
+
+export const education = [
   {
-    id: "about",
-    title: "About",
+    logo: "/images/shibumaku2.png",
+    title: "渋谷教育学園幕張高等学校",
+    subtitle: "Shibuya Education Academy Makuhari High School",
+    date: "Apr. 2015 – Mar. 2018",
+    year: "2015",
   },
   {
-    id: "education",
-    title: "Education",
+    logo: "/images/utokyo.png",
+    title: "東京大学 工学部 機械情報工学科",
+    subtitle: "B.Eng. — Department of Mechano-Informatics, The University of Tokyo",
+    date: "Apr. 2019 – Mar. 2023",
+    year: "2019",
   },
   {
-    id: "research",
-    title: "Research",
-  },
-  {
-    id: "work",
-    title: "Experience",
-  },
-  {
-    id: "works",
-    title: "Projects",
-  },
-  {
-    id: "contact",
-    title: "Contact",
+    logo: "/images/utokyo.png",
+    title: "東京大学大学院 情報理工学系研究科 知能機械情報学専攻",
+    subtitle:
+      "M.S. — Department of Mechano-Informatics, Graduate School of Information Science and Technology, The University of Tokyo",
+    date: "Apr. 2023 – Mar. 2025",
+    year: "2023",
   },
 ];
 
-const services = [
+export const publications = [
   {
-    title: "Web Developer",
-    icon: web,
+    title:
+      "Who Are You, Again?: Effect of Changing Partners' Avatars and Virtual Environments on Profile Memory",
+    venue: "ACM Symposium on Applied Perception (SAP '23)",
+    year: "2023",
+    type: "Conference",
+    image: "/images/webp/Research11.webp",
+    link: "/pdfs/SAPposter.pdf",
   },
   {
-    title: "React Native Developer",
-    icon: mobile,
+    title: "Effects of Human and Animal Partner-Avatars on Profile Memory in Virtual Reality",
+    venue: "ACM Symposium on Applied Perception (SAP '24)",
+    year: "2024",
+    type: "Conference",
+    image: "/images/webp/Research2.webp",
+    link: "https://doi.org/10.1145/3675231.3675241",
   },
   {
-    title: "Backend Developer",
-    icon: backend,
+    title: "セルフアバタによる身体化がVR回想法に与える効果",
+    venue: "第29回日本バーチャルリアリティ学会大会論文集",
+    year: "2024",
+    type: "Domestic",
+    image: "/images/webp/Research3.webp",
+    link: "https://conference.vrsj.org/ac2024/program/doc/2D1-11.pdf",
   },
   {
-    title: "Content Creator",
-    icon: creator,
-  },
-];
-
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
+    title:
+      "Multiple Self-Avatar Effect: Effects of Using Diverse Self-Avatars on Memory Acquisition and Retention of Sign-Language Gestures",
+    venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG)",
+    year: "2024",
+    type: "Journal · 2nd author",
+    image: "/images/webp/Research4.webp",
+    link: "https://ieeexplore.ieee.org/abstract/document/10609545",
   },
   {
-    name: "CSS 3",
-    icon: css,
+    title:
+      "Exploring the Effects of Self-Avatars on Virtual Reality-Based Reminiscence Therapy for Young Adults",
+    venue: "IEEE VR 2025 Workshops (VRW)",
+    year: "2025",
+    type: "Workshop",
+    image: "/images/webp/Research5.webp",
+    link: "https://doi.org/10.1109/VRW66409.2025.00158/",
   },
   {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
+    title:
+      "Back to the Childhood: Investigating the Role of Self-Avatars in Virtual Reality-Based Reminiscence Therapy",
+    venue: "Augmented Humans International Conference (AHs '25)",
+    year: "2025",
+    type: "Conference",
+    image: "/images/webp/Research6.webp",
+    link: "https://doi.org/10.1145/3745900.3746067",
   },
 ];
 
-const experiences = [
+export const experiences = [
   {
     title: "C/C++ Developer",
-    company_name: "University of Tokyo",
+    company: "The University of Tokyo",
     icon: utokyo,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "Mar 2020 – Apr 2021",
     points: [
-      "Updated university exercise lecture materials and programs at the request of a professor",
-      "Developed and maintained exercise assignments on image processing, computer graphics, and AR/VR",
-      "Migrated OpenCV/OpenGL programs from C to C++ implementations",
-      "Addressed API specification changes, refactored and optimized code, and added comments and sample programs",
+      "Updated exercise lecture materials and programs at a professor's request",
+      "Developed and maintained assignments on image processing, computer graphics and AR/VR",
+      "Migrated OpenCV / OpenGL programs from C to C++ and refactored for API changes",
     ],
   },
   {
     title: "GCP Engineer",
-    company_name: "QQBridge",
+    company: "QQBridge",
     icon: QQBridge,
-    iconBg: "#E6DEDD",
-    date: "Jun 2024 - Feb 2025",
+    date: "Jun 2024 – Feb 2025",
     points: [
-      "Built a serverless knowledge search & conversational QA platform on Google Cloud that automatically ingests, updates, and deletes documents from GCS, supports multi‑mode chat, and improves relevance via Gemini-based reranking.",
-      "This system enables enterprise knowledge ingestion and conversational querying over documents stored in Google Cloud Storage. It orchestrates automated import, metadata updates, and deletion syncing into an Agent Builder datastore and exposes three chat endpoints with increasing sophistication (Search API, Conversation API, Answer API with reranking).",
+      "Built a serverless knowledge-search & conversational QA platform on Google Cloud that ingests, updates and deletes documents from GCS automatically",
+      "Exposed three chat endpoints of increasing sophistication (Search, Conversation, Answer API) with Gemini-based reranking",
+      "Synced metadata into an Agent Builder datastore for enterprise document querying",
     ],
   },
   {
     title: "Solution Engineer",
-    company_name: "Fujitsu",
+    company: "Fujitsu",
     icon: fujitsu,
-    iconBg: "#383E56",
-    date: "Apr 2025 - Present",
+    date: "Apr 2025 – Present",
+    current: true,
     points: [
       "Designed web and in-store operation screens for a major telecom service",
-      "Worked across requirements definition, design, development, and testing within a framework structured into BFF, BS, and Integration layers",
-      "Developed automation tools to generate YAML and DTOs directly from Excel-based API specification documents",
-      "Implemented using VBA, PowerShell, Batch scripts, TypeScript/Java DTOs, and Python for file operations",
+      "Worked across requirements, design, development and testing in a BFF / BS / Integration layered framework",
+      "Built automation tools that generate YAML and DTOs directly from Excel-based API specifications",
+      "Implemented with VBA, PowerShell, Batch, TypeScript/Java DTOs and Python",
     ],
   },
 ];
 
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-];
-
-const projects = [
-  // {
-  //   name: "Manabix",
-  //   description: "Manabixは、Meta Quest 3を活用した現場教育DXプラットフォームです。熟練者（Expert）の作業ノウハウをMR動画で記録し、AIが自動でマニュアル化。初学者（Learner）はARガイドを実空間に重ねながら学習できます。「暗黙知を形式知に変え、次世代へ効率的に技能伝承する」ことを目的としています。",
-  //   tags: [
-  //     { name: "C#/Unity", color: "blue-text-gradient" },
-  //     { name: "Prisma ORM", color: "green-text-gradient" },
-  //     { name: "Node.js/Typescript", color: "pink-text-gradient" },
-  //     { name: "PostgreSQL", color: "orange-text-gradient" },
-  //     { name: "Google Cloud", color: "purple-text-gradient" },
-  //   ],
-  //   image: Manabix,
-  //   additional_links: [
-  //     {
-  //       type: "youtube",
-  //       url: "https://youtube.com/playlist?list=PLJYQQdxQoN74Tb5xIYvUd6HLkMB06-1PD&si=HyifImdwmwqoaHjS",
-  //       label: "デモ動画"
-  //     }
-  //   ]
-  // },
+export const projects = [
   {
     name: "Gymini",
-    description: "ジム入会者の96%が1年以内に辞めてしまうほど、筋トレを継続するのは大変なことです。原因は「何をすればいいか分からない」「成果が見えない」こと。Gyminiアプリは、AIトレーナーRooちゃんがあなたの目標や生活スタイルに合わせて、相談に乗ってくれるとともに最適なメニューを提案し、トレーニングを記録・可視化してくれるアプリです 。高額なパーソナルトレーナーではなく、いつでもポケットの中にいる専属トレーナーとして、初心者でも迷わず続けられる運動習慣をつくります。",
-    tags: [
-      { name: "Google Cloud", color: "blue-text-gradient" },
-      { name: "flutter", color: "green-text-gradient" },
-      { name: "Gemini", color: "pink-text-gradient" },
-      { name: "Firebase", color: "orange-text-gradient" },
-    ],
+    tagline: "AI personal trainer in your pocket",
+    description:
+      "ジム入会者の96%が1年以内に辞めてしまうほど、筋トレを継続するのは大変なことです。AIトレーナーRooちゃんが目標や生活スタイルに合わせて相談に乗り、最適なメニューを提案し、トレーニングを記録・可視化。初心者でも迷わず続けられる運動習慣をつくります。",
+    tags: ["Google Cloud", "Flutter", "Gemini", "Firebase"],
     image: Gymini,
-    source_code_link: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
-    additional_links: [
-      {
-        type: "appstore",
-        url: "https://apps.apple.com/jp/app/gymini/id6758005538",
-        label: "App Store"
-      },
-      {
-        type: "zenn",
-        url: "https://zenn.dev/douxsh/articles/gymini-hackathon-2026",
-        label: "Zenn記事"
-      },
-      {
-        type: "youtube",
-        url: "https://youtu.be/mQ1dcKxOBv0",
-        label: "デモ動画"
-      }
-    ]
+    featured: true,
+    source: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
+    links: [
+      { type: "appstore", url: "https://apps.apple.com/jp/app/gymini/id6758005538", label: "App Store" },
+      { type: "zenn", url: "https://zenn.dev/douxsh/articles/gymini-hackathon-2026", label: "Zenn" },
+      { type: "youtube", url: "https://youtu.be/mQ1dcKxOBv0", label: "Demo" },
+    ],
   },
   {
     name: "Edibuddy",
-    description: "Edibuddyは、冷蔵庫の食材をAIでキャラクター化し、賞味期限に応じて表情や感情を変化させるユニークなアプリです。ユーザーはまるで食材と友達のように接しながら、期限切れを楽しく防げます。さらにAIが冷蔵庫の中身から献立を提案することで、自然に食品ロスを減らし、持続可能な暮らしをサポートします。\n" +
-      "「食材に愛着を持つことで、楽しくフードロスを削減する」――それがEdibuddyです。",
-    tags: [
-      { name: "Google Cloud", color: "blue-text-gradient" },
-      { name: "flutter", color: "green-text-gradient" },
-      { name: "ADK(Agent Development Kit)", color: "pink-text-gradient" },
-      { name: "Firebase", color: "orange-text-gradient" },
-    ],
+    tagline: "Make friends with your food, cut waste",
+    description:
+      "冷蔵庫の食材をAIでキャラクター化し、賞味期限に応じて表情や感情が変化。食材と友達のように接しながら期限切れを楽しく防ぎ、AIが冷蔵庫の中身から献立を提案して自然にフードロスを削減します。",
+    tags: ["Google Cloud", "Flutter", "ADK", "Firebase"],
     image: Edibuddy,
-    source_code_link: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
-    additional_links: [
-      {
-        type: "zenn",
-        url: "https://zenn.dev/moyarzabalstake/articles/d102dde6403bc9",
-        label: "Zenn記事"
-      },
-      {
-        type: "youtube",
-        url: "https://youtu.be/tLUlEh-jQFA", // 実際のYouTube動画URLに置き換えてください
-        label: "デモ動画"
-      }
-    ]
+    source: "https://github.com/Moyarzabal/GCP-Hackathon-F06",
+    links: [
+      { type: "zenn", url: "https://zenn.dev/moyarzabalstake/articles/d102dde6403bc9", label: "Zenn" },
+      { type: "youtube", url: "https://youtu.be/tLUlEh-jQFA", label: "Demo" },
+    ],
   },
   {
     name: "Rank Party",
-    description: "あなたの価値観を可視化し、友達との価値観の違いを楽しく発見できるモバイルアプリです。出題者はお題に対する選択肢を順位づけして並べ，その順番を他のプレイヤーで当てるという，トランプで行われていた飲みゲームをアプリにしました！",
-    tags: [
-      { name: "React Native", color: "blue-text-gradient" },
-      { name: "Expo", color: "green-text-gradient" },
-      { name: "Gemini", color: "pink-text-gradient" },
-    ],
+    tagline: "A party game about how you see the world",
+    description:
+      "あなたの価値観を可視化し、友達との価値観の違いを楽しく発見できるモバイルアプリ。出題者がお題に対する選択肢を順位づけし、その順番を他のプレイヤーが当てる飲みゲームをアプリ化しました。",
+    tags: ["React Native", "Expo", "Gemini"],
     image: Ranking,
-    source_code_link: "https://github.com/Moyarzabal/KachikanRanking",
-    additional_links: [
-      {
-        type: "appstore",
-        url: "https://apps.apple.com/jp/app/rank-party/id6758461422",
-        label: "App Store"
-      },
-      {
-        type: "youtube",
-        url: "https://youtu.be/tsgqRMKCtU8",
-        label: "デモ動画"
-      }
-    ]
+    source: "https://github.com/Moyarzabal/KachikanRanking",
+    links: [
+      { type: "appstore", url: "https://apps.apple.com/jp/app/rank-party/id6758461422", label: "App Store" },
+      { type: "youtube", url: "https://youtu.be/tsgqRMKCtU8", label: "Demo" },
+    ],
   },
   {
-    name: "3D Portfolio Website (Current Project)",
+    name: "3D Portfolio",
+    tagline: "This very site",
     description:
-      "React、Three.js、Tailwind CSSで構築されたモダンでインタラクティブなポートフォリオサイト。3Dグラフィックスやレスポンシブ性，豊富なアニメーションを備えたUIが特徴。",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "threejs", color: "green-text-gradient" },
-      { name: "tailwind", color: "pink-text-gradient" },
-      { name: "GSAP", color: "orange-text-gradient" },
-    ],
+      "React、Three.js、GSAP、Tailwind CSSで構築したインタラクティブなポートフォリオ。3Dシーン、慣性スクロール、スクロール連動アニメーションを備えています。",
+    tags: ["React", "Three.js", "GSAP", "Tailwind"],
     image: threeDportfolio,
-    source_code_link: "https://github.com/Moyarzabal/3Dportfolio",
-    additional_links: [
-      {
-        type: "website",
-        url: "https://stake-portfolio.netlify.app/",
-        label: "ポートフォリオサイト"
-      }
-    ]
+    source: "https://github.com/Moyarzabal/3Dportfolio",
+    links: [{ type: "website", url: "https://stake-portfolio.netlify.app/", label: "Live" }],
   },
   {
-    name: "Portfolio(学生時代)",
+    name: "Portfolio (Student era)",
+    tagline: "Where it started",
     description:
-      "修士学生時代に作成したポートフォリオ。研究内容やインターンシップ参加情報、過去プロジェクトなどがシンプルにまとめられ、紹介されている。",
-    tags: [
-      {
-        name: "HTML",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "JavaScript",
-        color: "pink-text-gradient",
-      },
-    ],
+      "修士学生時代に作成したポートフォリオ。研究内容やインターンシップ参加情報、過去プロジェクトなどをシンプルにまとめています。",
+    tags: ["HTML", "CSS", "JavaScript"],
     image: portfolio,
-    source_code_link: "https://github.com/Moyarzabal/virtual_rubik-s_cube",
-    additional_links: [
-      {
-        type: "website",
-        url: "https://main--shuntakenaka.netlify.app/",
-        label: "ポートフォリオサイト"
-      }
-    ]
+    source: "https://github.com/Moyarzabal/virtual_rubik-s_cube",
+    links: [{ type: "website", url: "https://main--shuntakenaka.netlify.app/", label: "Live" }],
   },
   {
     name: "Back to the Childhood",
+    tagline: "VR reminiscence therapy",
     description:
-      "修士時代に研究でも使用したVRプロジェクトで、子どもまたは高齢者の姿をしたアバタに変身し、昭和の風景を体験可能。高齢者が体験することで、過去を回想し、心理的にも若返ることができる。",
-    tags: [
-      {
-        name: "C#",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Unity",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Meta Quest",
-        color: "pink-text-gradient",
-      },
-    ],
+      "子どもまたは高齢者の姿をしたアバタに変身し、昭和の風景を体験できるVRプロジェクト。高齢者が体験することで過去を回想し、心理的に若返る効果を研究しました。",
+    tags: ["C#", "Unity", "Meta Quest"],
     image: backToTheChildhood,
-    source_code_link: "https://github.com/Moyarzabal/RejuvenationClassRoom",
+    source: "https://github.com/Moyarzabal/RejuvenationClassRoom",
+    links: [],
   },
   {
     name: "VR野球BAN!",
+    tagline: "Two-player VR baseball",
     description:
-      "2人対戦型のVR野球ゲーム。ピッチャーとバッターがそれぞれコントローラーを持ち、ピッチャーはスイング速度とジョイスティック操作により球速や変化球の方向を操作し、バッターはコントローラー連動のバットで打撃を行う。物理的にリアルな打球挙動や，現実では不可能な変化球軌道、また打球追従カメラ、スコアボード、効果音やBGMなども搭載され、臨場感の高いVR野球体験が可能。",
-    tags: [
-      {
-        name: "C#/Unity",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Meta Quest",
-        color: "green-text-gradient",
-      },
-    ],
+      "ピッチャーはスイング速度とジョイスティックで球速や変化球を操作し、バッターはコントローラー連動のバットで打撃。リアルな打球挙動と現実では不可能な変化球軌道、追従カメラ、スコアボードを搭載。",
+    tags: ["C# / Unity", "Meta Quest"],
     image: vrBaseball,
-    source_code_link: "https://github.com/Moyarzabal/VR_Yakyu_BAN",
+    source: "https://github.com/Moyarzabal/VR_Yakyu_BAN",
+    links: [],
   },
   {
     name: "VoidStrike",
+    tagline: "Multiplayer VR FPS",
     description:
-      "Photon Networkを用いたオンライン対戦が可能なVRでのマルチプレイヤーFPSゲーム。プレイヤーは対戦部屋を作成または検索して参加し、ジョイスティックで移動、Aボタンで走行、トリガーで射撃、マガジンのリロードといった操作が可能。",
-    tags: [
-      {
-        name: "C#/Unity",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Meta Quest",
-        color: "green-text-gradient",
-      },
-    ],
+      "Photon Networkを用いたオンライン対戦VR FPS。対戦部屋の作成・検索、ジョイスティック移動、ダッシュ、射撃、リロードといった操作に対応。",
+    tags: ["C# / Unity", "Photon", "Meta Quest"],
     image: voidStrike,
-    source_code_link: "https://github.com/Moyarzabal/VR_multi_FPS",
+    source: "https://github.com/Moyarzabal/VR_multi_FPS",
+    links: [],
   },
   {
     name: "Virtual Rubik's Cube",
+    tagline: "My first program",
     description:
-      "大学3年次に制作した初のプログラミング作品で，2×2×2のルービックキューブを仮想空間で操作できるアプリケーション。キーボードで面の選択や回転、視点の移動ができ、現実のキューブに近い操作感を再現している。",
-    tags: [
-      {
-        name: "C++",
-        color: "blue-text-gradient",
-      },
-    ],
+      "大学3年次に制作した初のプログラミング作品。2×2×2のルービックキューブを仮想空間で操作でき、キーボードで面の選択・回転・視点移動が可能。",
+    tags: ["C++", "OpenGL"],
     image: virtualRubik,
-    source_code_link: "https://github.com/Moyarzabal/virtual_rubik-s_cube",
+    source: "https://github.com/Moyarzabal/virtual_rubik-s_cube",
+    links: [],
   },
 ];
-
-const words = [
-  "Future",
-  "World",
-  "Dreams",
-  "Destiny",
-  "Innovation",
-  "Future",
-  "World",
-  "Dreams",
-  "Destiny",
-  "Innovation",
-];
-
-const counterItems = [
-  { value: 6, suffix: "+", label: "Years of Experience" },
-  { value: 6, suffix: "+", label: "Published Papers" },
-  { value: 8, suffix: "+", label: "Completed Projects" },
-  { value: 2, suffix: "+", label: "Academic Degrees" },
-];
-
-const edcCards = [
-  {
-    // imgPath: "/images/exp1.png",
-    logoPath: "/images/shibumaku2.png",
-    title: "私立 渋谷教育学園幕張高等学校",
-    date: "Apr. 2015 ~ Mar. 2018",
-    responsibilities: ["Shibuya Education Academy Makuhari High School"],
-  },
-  {
-    // imgPath: "/images/exp2.png",
-    logoPath: "/images/utokyo.png",
-    title: "東京大学\n理科一類 → 工学部 機械情報工学科",
-    date: "Apr. 2019 ~ Mar. 2023",
-    responsibilities: [
-      "Bachelor's degree at the Department of Mechano-Infomatics, The University of Tokyo",
-    ],
-  },
-  {
-    // imgPath: "/images/exp3.png",
-    logoPath: "/images/utokyo.png",
-    title: "東京大学大学院 情報理工学系研究科 \n知能機械情報学専攻（修士課程）",
-    date: "Apr. 2023 ~ Mar. 2025",
-    responsibilities: [
-      "Master's degree at the Department of Mechano-Informatics, Graduate School of Information Science and Technology, The University of Tokyo",
-    ],
-  },
-];
-
-export {
-  services,
-  technologies,
-  experiences,
-  testimonials,
-  projects,
-  words,
-  counterItems,
-  edcCards,
-};

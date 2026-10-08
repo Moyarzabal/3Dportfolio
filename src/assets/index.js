@@ -1,87 +1,33 @@
 import logo from "./logo.png";
-// import Manabix from "./Manabix.png";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
-import github from "./github.png";
-import menu from "./menu.svg";
-import close from "./close.svg";
 
-import css from "./tech/css.png";
-import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
-import git from "./tech/git.png";
-import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
-import nodejs from "./tech/nodejs.png";
-import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
-import tailwind from "./tech/tailwind.png";
-import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
-
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 import QQBridge from "./company/QQBridge.png";
 import utokyo from "./company/utokyo.png";
 import fujitsu from "./company/fujitsu.png";
-import Ranking from "./Ranking.png";
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
-import threeDportfolio from "./3Dportfolio.png";
-import Edibuddy from "./Edibuddy.png";
-import Gymini from "./Gymini.png";
-import virtualRubik from "./v_rubik_cube.png";
-import portfolio from "./portfolio.png";
-import backToTheChildhood from "./back_to_the_childhood.png";
-import vrBaseball from "./vr_baseball.png";
-import voidStrike from "./void_strike.png";
+
+import Ranking from "./webp/Ranking.webp";
+import threeDportfolio from "./webp/3Dportfolio.webp";
+import Edibuddy from "./webp/Edibuddy.webp";
+import Gymini from "./webp/Gymini.webp";
+import Manabix from "./webp/Manabix.webp";
+import virtualRubik from "./webp/v_rubik_cube.webp";
+import portfolio from "./webp/portfolio.webp";
+import backToTheChildhood from "./webp/back_to_the_childhood.webp";
+import vrBaseball from "./webp/vr_baseball.webp";
+import voidStrike from "./webp/void_strike.webp";
 
 export {
   logo,
-  backend,
-  creator,
-  mobile,
-  web,
-  github,
-  menu,
-  close,
-  css,
-  docker,
-  figma,
-  git,
-  html,
-  javascript,
-  mongodb,
-  nodejs,
-  reactjs,
-  redux,
-  tailwind,
-  typescript,
-  threejs,
-  meta,
-  shopify,
   QQBridge,
   utokyo,
   fujitsu,
-  starbucks,
-  tesla,
-  carrent,
-  jobit,
-  tripguide,
+  Ranking,
   threeDportfolio,
   Edibuddy,
   Gymini,
-  Ranking,
+  Manabix,
   virtualRubik,
   portfolio,
   backToTheChildhood,
   vrBaseball,
   voidStrike,
-  // Manabix,
 };

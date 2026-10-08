@@ -1,85 +1,82 @@
-import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import { motion } from "framer-motion";
+import { Briefcase, Calendar } from "lucide-react";
 
-// import "react-vertical-timeline-component/style.min.css";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal from "./ui/Reveal";
+import TiltCard from "./ui/TiltCard";
+import Snack from "./fx/Snack";
+import { experiences } from "@/constants";
 
-import { styles } from "../styles";
-import { experiences } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
-
-const ExperienceCard = ({ experience }) => {
-  return (
-    <VerticalTimelineElement
-      contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
-      date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
-      icon={
-        <div className='flex justify-center items-center w-full h-full'>
-          <img
-            src={experience.icon}
-            alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
-          />
+const ExperienceCard = ({ exp }) => (
+  <TiltCard className="p-6 sm:p-8" maxTilt={4}>
+    <div className="relative z-10">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <img src={exp.icon} alt="" className="h-12 w-12 shrink-0 object-contain" loading="lazy" />
+          <div>
+            <h3 className="text-lg font-semibold tracking-tight sm:text-xl">{exp.title}</h3>
+            <p className="text-sm text-brand-light">{exp.company}</p>
+          </div>
         </div>
-      }
-    >
-      <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
-        <p
-          className='text-secondary text-[16px] font-semibold'
-          style={{ margin: 0 }}
-        >
-          {experience.company_name}
-        </p>
+        {exp.current && (
+          <span className="chip !border-emerald-400/30 !bg-emerald-400/10 text-emerald-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-dot" /> Current
+          </span>
+        )}
       </div>
-
-      <ul className='mt-5 list-disc ml-5 space-y-2'>
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
-          >
-            {point}
+      <p className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-muted">
+        <Calendar size={12} /> {exp.date}
+      </p>
+      <ul className="mt-4 flex flex-col gap-2.5">
+        {exp.points.map((pt) => (
+          <li key={pt} className="flex gap-3 text-sm leading-relaxed text-white/75">
+            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gradient-to-r from-brand to-brand-pink" />
+            {pt}
           </li>
         ))}
       </ul>
-    </VerticalTimelineElement>
-  );
-};
+    </div>
+  </TiltCard>
+);
 
 const Experience = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
-        </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Development Experience.
-        </h2>
-      </motion.div>
+    <section id="experience" className="section">
+      <Snack id={2} className="right-[7%] top-[58%]" />
+      <div className="container-x">
+        <SectionHeading
+          title="Development experience"
+          align="center"
+          description="From university C++ assignments to enterprise cloud platforms — a timeline of the work that shaped me."
+        />
 
-      <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-            />
-          ))}
-        </VerticalTimeline>
+        <div className="relative mx-auto mt-16 max-w-5xl">
+          <div aria-hidden className="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent md:left-1/2" />
+
+          <ol className="flex flex-col gap-10 md:gap-16">
+            {experiences.map((exp, i) => {
+              const left = i % 2 === 0;
+              return (
+                <li key={exp.company} className="relative grid grid-cols-[2.5rem_1fr] gap-6 md:grid-cols-[1fr_4rem_1fr] md:gap-0">
+                  <Reveal y={0} className="relative z-10 flex justify-center md:col-start-2 md:row-start-1">
+                    <span className="mt-6 grid h-10 w-10 place-items-center rounded-full border border-line bg-bg text-brand-light shadow-glow">
+                      <Briefcase size={16} />
+                    </span>
+                  </Reveal>
+                  <Reveal
+                    x={left ? -40 : 40}
+                    y={0}
+                    className={`col-start-2 md:row-start-1 ${left ? "md:col-start-1 md:pr-10" : "md:col-start-3 md:pl-10"}`}
+                  >
+                    <ExperienceCard exp={exp} />
+                  </Reveal>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default Experience;

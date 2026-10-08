@@ -1,118 +1,227 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 
-import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { navLinks, socials } from "@/constants";
+import { scrollTo, startScroll, stopScroll } from "@/lib/scroll";
+import { useAppReady } from "@/lib/AppReady";
+import { EASE } from "@/lib/motion";
+import Magnetic from "./ui/Magnetic";
 
 const Navbar = () => {
+  const { ready } = useAppReady();
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
+  // hide on scroll down, reveal on scroll up
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setScrolled(y > 40);
+    setHidden(y > prev && y > 240 && !open);
+  });
+
+  // highlight the section currently in the middle of the viewport
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+    const sections = navLinks.map((l) => document.getElementById(l.id)).filter(Boolean);
+    if (!sections.length) return undefined;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id));
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => io.observe(s));
+    const top = document.getElementById("top");
+    const ioTop = new IntersectionObserver(([e]) => e.isIntersecting && setActive(""), {
+      rootMargin: "-20% 0px -60% 0px",
+    });
+    top && ioTop.observe(top);
+    return () => {
+      io.disconnect();
+      ioTop.disconnect();
     };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // lock page scroll while the mobile menu is open
+  useEffect(() => {
+    if (open) {
+      stopScroll();
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      startScroll();
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+    };
+  }, [open]);
+
+  const go = (id) => (e) => {
+    e.preventDefault();
+    setOpen(false);
+    // wait for the overlay to start closing before scrolling
+    setTimeout(() => scrollTo(`#${id}`), open ? 150 : 0);
+  };
+
   return (
-    <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
-      }`}
-    >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link
-          to='#top'
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive("About");
-            const topSection = document.getElementById('top');
-            if (topSection) {
-                topSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
-          }}
-        >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Shun &nbsp;
-            <span className='xl:block hidden'> | Solution Engineer</span>
-          </p>
-        </Link>
+    <>
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: ready ? (hidden ? -110 : 0) : -80, opacity: ready ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: EASE }}
+        className="fixed inset-x-0 top-0 z-50"
+      >
+        <nav className="container-x flex items-center justify-between py-4 sm:py-5">
+          {/* logo */}
+          <a href="#top" onClick={go("top")} className="group flex items-center gap-3" aria-label="Back to top">
+            <span className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-line bg-white/[0.04]">
+              <img src="/logo.webp" alt="" className="h-6 w-6" />
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            </span>
+            <span className="hidden text-sm font-semibold tracking-tight sm:block">
+              Shun Takenaka
+              <span className="ml-2 hidden text-muted xl:inline">/ Solution Engineer</span>
+            </span>
+          </a>
 
-        <ul className='list-none hidden lg:flex flex-row gap-10'>
-          {navLinks.map((link) => (
-            <li
-              key={link.id}
-              className={`${
-                active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
-            >
-              <a href={`#${link.id}`}>{link.title}</a>
-            </li>
-          ))}
-        </ul>
-
-        <div className='lg:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain cursor-pointer'
-            onClick={() => setToggle(!toggle)}
-          />
-
+          {/* desktop pill nav */}
           <div
-            className={`${
-              !toggle 
-                ? "opacity-0 invisible transform scale-95 -translate-y-2" 
-                : "opacity-100 visible transform scale-100 translate-y-0"
-            } flex p-6 absolute top-20 right-0 mx-4 my-2 min-w-[160px] z-50 rounded-2xl transition-all duration-300 ease-out
-            backdrop-blur-xl bg-gradient-to-br from-violet-900/20 to-purple-900/30 
-            border border-violet-500/20 shadow-2xl shadow-violet-500/10`}
+            className={`hidden items-center gap-1 rounded-full p-1.5 transition-all duration-500 lg:flex ${
+              scrolled ? "glass shadow-card" : "border border-transparent"
+            }`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-5'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-medium cursor-pointer text-[16px] transition-all duration-200 hover:scale-105 ${
-                    active === nav.title 
-                      ? "text-white font-semibold" 
-                      : "text-gray-300 hover:text-white"
+            {navLinks.map((link) => {
+              const isActive = active === link.id;
+              return (
+                <a
+                  key={link.id}
+                  href={`#${link.id}`}
+                  onClick={go(link.id)}
+                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                    isActive ? "text-white" : "text-muted hover:text-white"
                   }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
                 >
-                  <a 
-                    href={`#${nav.id}`}
-                    className="block py-2 px-3 rounded-lg hover:bg-violet-500/10 transition-colors duration-200"
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      className="absolute inset-0 rounded-full bg-white/[0.08] ring-1 ring-inset ring-white/10"
+                    />
+                  )}
+                  <span className="relative z-10">{link.title}</span>
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-1 md:flex">
+              <Magnetic strength={0.25}>
+                <a
+                  href={socials.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="grid h-10 w-10 place-items-center rounded-full text-muted transition-colors hover:bg-white/[0.06] hover:text-white"
+                >
+                  <Github size={18} />
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.25}>
+                <a
+                  href={socials.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="grid h-10 w-10 place-items-center rounded-full text-muted transition-colors hover:bg-white/[0.06] hover:text-white"
+                >
+                  <Linkedin size={18} />
+                </a>
+              </Magnetic>
+            </div>
+            <Magnetic strength={0.2} className="hidden lg:block">
+              <a href="#contact" onClick={go("contact")} className="btn-primary !px-5 !py-2.5 text-xs">
+                Let&apos;s talk
+              </a>
+            </Magnetic>
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((o) => !o)}
+              className="glass grid h-10 w-10 place-items-center rounded-full lg:hidden"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={open ? "x" : "menu"}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="grid place-items-center"
+                >
+                  {open ? <X size={18} /> : <Menu size={18} />}
+                </motion.span>
+              </AnimatePresence>
+            </button>
+          </div>
+        </nav>
+      </motion.header>
+
+      {/* mobile full-screen menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="menu"
+            initial={{ clipPath: "circle(0% at 90% 5%)" }}
+            animate={{ clipPath: "circle(150% at 90% 5%)" }}
+            exit={{ clipPath: "circle(0% at 90% 5%)" }}
+            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-bg/95 px-6 pb-10 pt-28 backdrop-blur-xl lg:hidden"
+          >
+            <ul className="flex flex-col gap-1">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.id}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0, transition: { delay: 0.25 + i * 0.06, duration: 0.6, ease: EASE } }}
+                  exit={{ opacity: 0, x: 20, transition: { duration: 0.2 } }}
+                >
+                  <a
+                    href={`#${link.id}`}
+                    onClick={go(link.id)}
+                    className={`flex items-baseline gap-4 border-b border-line py-4 text-3xl font-semibold tracking-tight ${
+                      active === link.id ? "text-white" : "text-white/70"
+                    }`}
                   >
-                    {nav.title}
+                    <span className="text-xs font-medium text-brand-light">0{i + 1}</span>
+                    {link.title}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.6 } }}
+              className="flex items-center justify-between"
+            >
+              <div className="flex gap-3">
+                <a href={socials.github} target="_blank" rel="noreferrer" className="chip !py-2">
+                  <Github size={14} /> GitHub
+                </a>
+                <a href={socials.linkedin} target="_blank" rel="noreferrer" className="chip !py-2">
+                  <Linkedin size={14} /> LinkedIn
+                </a>
+              </div>
+              <span className="text-xs text-muted">Tokyo, JP</span>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

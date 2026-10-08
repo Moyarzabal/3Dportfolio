@@ -1,58 +1,50 @@
-import { useRef, useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
-const Particles = ({ count = 200 }) => {
-  const mesh = useRef();
+/** Slowly drifting dust motes. One buffer, updated in place. */
+const Particles = ({ count = 80 }) => {
+  const points = useRef();
 
-  const particles = useMemo(() => {
-    const temp = [];
+  const { positions, speeds } = useMemo(() => {
+    const positions = new Float32Array(count * 3);
+    const speeds = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      temp.push({
-        position: [
-          (Math.random() - 0.5) * 10,
-          Math.random() * 10 + 5, // higher starting point
-          (Math.random() - 0.5) * 10,
-        ],
-        speed: 0.005 + Math.random() * 0.001,
-      });
+      positions[i * 3] = (Math.random() - 0.5) * 12;
+      positions[i * 3 + 1] = Math.random() * 12 - 2;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 12;
+      speeds[i] = 0.25 + Math.random() * 0.35;
     }
-    return temp;
+    return { positions, speeds };
   }, [count]);
 
-  useFrame(() => {
-    const positions = mesh.current.geometry.attributes.position.array;
+  useFrame((_, delta) => {
+    const attr = points.current?.geometry.attributes.position;
+    if (!attr) return;
+    const arr = attr.array;
+    const dt = Math.min(delta, 0.05);
     for (let i = 0; i < count; i++) {
-      let y = positions[i * 3 + 1];
-      y -= particles[i].speed;
-      if (y < -2) y = Math.random() * 10 + 5;
-      positions[i * 3 + 1] = y;
+      let y = arr[i * 3 + 1] - speeds[i] * dt;
+      if (y < -2) y = 10;
+      arr[i * 3 + 1] = y;
+      arr[i * 3] += Math.sin((y + i) * 0.5) * 0.002;
     }
-    mesh.current.geometry.attributes.position.needsUpdate = true;
-  });
-
-  const positions = new Float32Array(count * 3);
-  particles.forEach((p, i) => {
-    positions[i * 3] = p.position[0];
-    positions[i * 3 + 1] = p.position[1];
-    positions[i * 3 + 2] = p.position[2];
+    attr.needsUpdate = true;
   });
 
   return (
-    <points ref={mesh}>
+    <points ref={points}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        color="#ffffff"
-        size={0.05}
+        color="#c4b5fd"
+        size={0.06}
         transparent
-        opacity={0.9}
+        opacity={0.8}
         depthWrite={false}
+        blending={THREE.AdditiveBlending}
+        sizeAttenuation
       />
     </points>
   );
