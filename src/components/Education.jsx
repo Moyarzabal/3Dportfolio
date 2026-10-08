@@ -7,7 +7,6 @@ import { Calendar, GraduationCap } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import Reveal from "./ui/Reveal";
 import TiltCard from "./ui/TiltCard";
-import Snack from "./fx/Snack";
 import { education } from "@/constants";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -47,7 +46,6 @@ const Education = () => {
 
   return (
     <section id="education" ref={root} className="section">
-      <Snack id={1} className="left-[8%] top-[46%]" />
       <div className="container-x">
         <SectionHeading title="Education" align="center" />
 

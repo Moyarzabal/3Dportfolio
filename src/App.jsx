@@ -7,6 +7,7 @@ import { AppReadyProvider, useAppReady } from "./lib/AppReady";
 import Preloader from "./components/Preloader";
 import Cursor from "./components/Cursor";
 import CursorFX from "./components/fx/CursorFX";
+import SnackField from "./components/fx/SnackField";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -54,6 +55,7 @@ const App = () => (
       <div aria-hidden className="noise" />
       <Navbar />
       <main className="relative">
+        <SnackField />
         <Hero />
         <About />
         <Education />

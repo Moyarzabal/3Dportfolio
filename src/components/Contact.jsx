@@ -10,7 +10,6 @@ import TiltCard from "./ui/TiltCard";
 import Globe from "./ui/Globe";
 import CopyEmail from "./ui/CopyEmail";
 import Magnetic from "./ui/Magnetic";
-import Snack from "./fx/Snack";
 import { StarsCanvas } from "./canvas";
 import { socials } from "@/constants";
 
@@ -69,7 +68,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section relative overflow-hidden !pb-14 lg:!pb-20">
-      <Snack id={4} className="right-[10%] top-[8%]" />
       <StarsCanvas />
       <div
         aria-hidden

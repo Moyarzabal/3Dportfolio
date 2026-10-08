@@ -47,11 +47,17 @@ const Preloader = () => {
   // drive the pen
   useEffect(() => {
     let raf;
+    let last = performance.now();
     const total = () => lengths.current.reduce((a, b) => a + b, 0);
     const tick = () => {
-      const floor = Math.min(90, ((performance.now() - start) / MAX_MS) * 100);
+      const now = performance.now();
+      const dt = Math.min(100, now - last);
+      last = now;
+      const floor = Math.min(90, ((now - start) / MAX_MS) * 100);
       const goal = done ? 100 : Math.max(target.current, floor);
-      display.current += (goal - display.current) * (done ? 0.16 : 0.07);
+      // time-based smoothing so the pen moves at the same pace on slow and fast machines
+      const tau = done ? 120 : 260;
+      display.current += (goal - display.current) * (1 - Math.exp(-dt / tau));
       let budget = (display.current / 100) * total();
       pathRefs.current.forEach((p, i) => {
         if (!p) return;

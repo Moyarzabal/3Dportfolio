@@ -3,7 +3,6 @@ import { Briefcase, Calendar } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import Reveal from "./ui/Reveal";
 import TiltCard from "./ui/TiltCard";
-import Snack from "./fx/Snack";
 import { experiences } from "@/constants";
 
 const ExperienceCard = ({ exp }) => (
@@ -41,7 +40,6 @@ const ExperienceCard = ({ exp }) => (
 const Experience = () => {
   return (
     <section id="experience" className="section">
-      <Snack id={2} className="right-[7%] top-[58%]" />
       <div className="container-x">
         <SectionHeading
           title="Development experience"

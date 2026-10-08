@@ -21,7 +21,7 @@ const STAR =
  * ghost's mouth, which then reacts and grows a little.
  * Only rendered where the cursor companion exists (fine pointer).
  */
-const Snack = ({ id, className, style }) => {
+const Snack = ({ id, className, style, dead = false, onGone }) => {
   const fine = useFinePointer();
   const reduce = usePrefersReducedMotion();
   const ref = useRef(null);
@@ -40,14 +40,15 @@ const Snack = ({ id, className, style }) => {
   };
 
   return (
-    <AnimatePresence>
-      {!flight ? (
+    <AnimatePresence onExitComplete={() => dead && onGone?.()}>
+      {dead ? null : !flight ? (
         <motion.div
           key="snack"
           ref={ref}
           onPointerEnter={onEnter}
           data-cursor
           initial={{ opacity: 0, scale: 0 }}
+          exit={{ opacity: 0, scale: 0.4, transition: { duration: 0.6 } }}
           animate={{ opacity: 1, scale: 1, y: [0, -6, 0], rotate: [0, 12, 0] }}
           transition={{
             opacity: { duration: 0.5 },
@@ -77,7 +78,10 @@ const Snack = ({ id, className, style }) => {
           initial={{ x: 0, y: 0, scale: 1, opacity: 1 }}
           animate={{ x: flight.dx, y: flight.dy, scale: 0.2, opacity: 0.9, rotate: 360 }}
           transition={{ duration: 0.45, ease: [0.4, 0, 0.6, 1] }}
-          onAnimationComplete={() => feed({ color: flight.color })}
+          onAnimationComplete={() => {
+            feed({ color: flight.color });
+            onGone?.();
+          }}
           className={cn("pointer-events-none absolute z-20 grid h-12 w-12 place-items-center", className)}
           style={style}
         >

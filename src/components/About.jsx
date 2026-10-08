@@ -6,7 +6,6 @@ import Reveal from "./ui/Reveal";
 import TiltCard from "./ui/TiltCard";
 import CountUp from "./ui/CountUp";
 import CopyEmail from "./ui/CopyEmail";
-import Snack from "./fx/Snack";
 import { expertise, socials, stats } from "@/constants";
 
 const TokyoClock = () => {
@@ -45,7 +44,6 @@ const Marquee = ({ items, reverse = false, duration = 38 }) => (
 const About = () => {
   return (
     <section id="about" className="section">
-      <Snack id={0} className="right-[6%] top-[14%]" />
       <div className="container-x">
         <SectionHeading
           title="About me"

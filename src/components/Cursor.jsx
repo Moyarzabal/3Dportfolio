@@ -193,7 +193,7 @@ const Cursor = () => {
 
       pet.current.style.transform = `translate3d(${petPos.x}px, ${petPos.y + bob}px, 0) translate(-50%, -50%)`;
       pet.current.dataset.side = petPos.x > window.innerWidth - 150 ? "left" : "right";
-      pet.current.style.setProperty("--pet-glow", grow.toFixed(2));
+      pet.current.style.setProperty("--pet-grow", grow.toFixed(2));
       body.current.style.transform = `rotate(${tilt}deg) rotate(${(angle * 180) / Math.PI}deg) scale(${sx * grow}, ${sy * grow}) rotate(${(-angle * 180) / Math.PI}deg)`;
 
       // eyes look toward the pointer (or the door while flying home)
@@ -304,7 +304,7 @@ const Cursor = () => {
         .cursor-jump { position: relative; }
         .cursor-glow { position:absolute; left:50%; top:55%; width:34px; height:34px; border-radius:50%;
           background: radial-gradient(circle, rgba(196,181,253,.55), rgba(240,171,252,.25) 55%, transparent 72%);
-          transform: translate(-50%,-50%) scale(var(--pet-glow, 1)); filter: blur(6px); will-change: transform; }
+          transform: translate(-50%,-50%) scale(var(--pet-grow, 1)); filter: blur(6px); will-change: transform; }
         .cursor-body { display:block; transform-origin: 50% 60%; }
         .cursor-eyes circle { transition: r .25s cubic-bezier(.16,1,.3,1); }
         .cursor-lids rect { transform-box: fill-box; }
@@ -339,7 +339,10 @@ const Cursor = () => {
         }
         .cursor-pet[data-pressed="true"] .cursor-mouth { d: path("M19.5 28.5a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0"); }
         .cursor-bubble {
-          position:absolute; left: 36px; top: -6px; white-space: nowrap;
+          /* the body scales around (22px, 28.8px); keep the bubble just past its top-right corner */
+          position:absolute; white-space: nowrap;
+          left: calc(16px + 22px * var(--pet-grow, 1));
+          top: calc(30px - 29px * var(--pet-grow, 1));
           padding: 4px 9px; border-radius: 999px;
           font: 600 11px/1.2 "Mona Sans", system-ui, sans-serif; letter-spacing: .04em;
           color: #1e1b4b; background: #fff;
@@ -347,7 +350,7 @@ const Cursor = () => {
           opacity: 0; transform: translateY(6px) scale(.8); transform-origin: left bottom;
           transition: opacity .25s, transform .35s cubic-bezier(.16,1,.3,1);
         }
-        .cursor-pet[data-side="left"] .cursor-bubble { left: auto; right: 36px; transform-origin: right bottom; }
+        .cursor-pet[data-side="left"] .cursor-bubble { left: auto; right: calc(16px + 22px * var(--pet-grow, 1)); transform-origin: right bottom; }
         .cursor-pet[data-side="left"] .cursor-bubble::after { left: auto; right: -3px; }
         .cursor-bubble::after {
           content:""; position:absolute; left: -3px; bottom: 4px; width: 8px; height: 8px;

@@ -4,7 +4,6 @@ import SectionHeading from "./ui/SectionHeading";
 import Reveal from "./ui/Reveal";
 import TiltCard from "./ui/TiltCard";
 import OrbitingCircles from "./ui/OrbitingCircles";
-import Snack from "./fx/Snack";
 import { projects, techStack } from "@/constants";
 
 const LINK_ICON = {
@@ -130,7 +129,6 @@ const ProjectCard = ({ project, index }) => {
 const Works = () => {
   return (
     <section id="works" className="section">
-      <Snack id={3} className="left-[5%] top-[7%]" />
       <div className="container-x flex flex-col gap-14">
         <SectionHeading
           title="Projects"
